@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/amazon_opportunity_intelligence.egg-info/PKG-INFO
+src/amazon_opportunity_intelligence.egg-info/SOURCES.txt
+src/amazon_opportunity_intelligence.egg-info/dependency_links.txt
+src/amazon_opportunity_intelligence.egg-info/entry_points.txt
+src/amazon_opportunity_intelligence.egg-info/requires.txt
+src/amazon_opportunity_intelligence.egg-info/top_level.txt
+src/core/health.py
+src/core/logger.py
+src/research/google_trends.py
+tests/test_health.py

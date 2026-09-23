@@ -1,0 +1,22 @@
+
+[project]
+name = "amazon-opportunity-intelligence"
+version = "0.1.0"
+description = "Global Amazon Affiliate Opportunity Intelligence"
+requires-python = ">=3.13"
+
+dependencies = [
+    "streamlit",
+    "pandas",
+    "python-dotenv",
+    "requests",
+    "pytrends",
+    "praw",
+    "openai",
+    "reportlab",
+    "openpyxl",
+    "xlsxwriter"
+]
+
+[project.scripts]
+aoi = "pipeline:run"

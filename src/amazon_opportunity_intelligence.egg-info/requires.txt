@@ -1,0 +1,10 @@
+streamlit
+pandas
+python-dotenv
+requests
+pytrends
+praw
+openai
+reportlab
+openpyxl
+xlsxwriter

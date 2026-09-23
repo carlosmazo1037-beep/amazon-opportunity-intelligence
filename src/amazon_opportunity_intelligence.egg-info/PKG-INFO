@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: amazon-opportunity-intelligence
+Version: 0.1.0
+Summary: Global Amazon Affiliate Opportunity Intelligence
+Requires-Python: >=3.13
+Requires-Dist: streamlit
+Requires-Dist: pandas
+Requires-Dist: python-dotenv
+Requires-Dist: requests
+Requires-Dist: pytrends
+Requires-Dist: praw
+Requires-Dist: openai
+Requires-Dist: reportlab
+Requires-Dist: openpyxl
+Requires-Dist: xlsxwriter
