@@ -31,4 +31,17 @@ if not df.empty:
 else:
     st.info("Aún no existen datos.")
 
+
+    
+from pathlib import Path
+
+log=Path("logs/aoi.log")
+
+if log.exists():
+
+    st.subheader("Últimos eventos")
+
+    st.code(log.read_text()[-3000:])
+    
+
 conn.close()
