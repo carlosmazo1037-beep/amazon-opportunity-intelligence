@@ -1,9 +1,11 @@
-﻿from database.init_db import create_database
+from database.init_db import create_database
+from src.core.logger import logger
 
 def run():
-    print("AOI iniciado")
+    logger.info("Pipeline iniciado")
     create_database()
-    print("Pipeline finalizado correctamente")
+    logger.info("Pipeline finalizado")
+    print("AOI OK")
 
 if __name__=="__main__":
     run()

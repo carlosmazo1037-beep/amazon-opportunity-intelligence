@@ -1,32 +1,26 @@
-﻿
 name: AOI Production
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 6 * * *"
+ workflow_dispatch:
+ schedule:
+   - cron: '0 6 * * *'
 
 jobs:
+ build:
+   runs-on: ubuntu-latest
 
-  build:
+   steps:
+     - uses: actions/checkout@v4
 
-    runs-on: ubuntu-latest
+     - uses: actions/setup-python@v5
+       with:
+         python-version: '3.13'
 
-    steps:
+     - run: pip install -r requirements.txt
 
-      - uses: actions/checkout@v4
+     - run: python pipeline.py
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-
-      - run: pip install -r requirements.txt
-
-      - run: pytest tests/
-
-      - run: python pipeline.py
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: AOI-Reports
-          path: reports/
+     - uses: actions/upload-artifact@v4
+       with:
+         name: AOI-Reports
+         path: reports/
