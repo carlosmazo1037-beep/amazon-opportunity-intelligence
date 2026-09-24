@@ -5,7 +5,6 @@ from aoi.core.logger import logger
 
 
 def create_database():
-    """Create tables if they don't exist."""
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 
@@ -32,13 +31,28 @@ def create_database():
     )
     """)
 
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS opportunities (
+        id INTEGER PRIMARY KEY,
+        country TEXT,
+        keyword TEXT,
+        product TEXT,
+        source TEXT,
+        demand TEXT,
+        problem TEXT,
+        content TEXT,
+        competition TEXT,
+        status TEXT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+    """)
+
     conn.commit()
     conn.close()
     logger.info("Database ready")
 
 
 def save_trends(trends: list):
-    """Persist trends to SQLite."""
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
     for t in trends:
@@ -52,7 +66,6 @@ def save_trends(trends: list):
 
 
 def save_problems(problems: list):
-    """Persist problems (news items) to SQLite."""
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
     for p in problems:
@@ -63,3 +76,17 @@ def save_problems(problems: list):
     conn.commit()
     conn.close()
     logger.info("Saved %d problems to DB" % len(problems))
+
+
+def save_opportunities(opps: list):
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    for o in opps:
+        cur.execute(
+            "INSERT INTO opportunities (country, keyword, product, source, demand, problem, content, competition, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (o["country"], o["keyword"], o["product"], o["source"],
+             o["demand"], o["problem"], o["content"], o["competition"], o["status"]),
+        )
+    conn.commit()
+    conn.close()
+    logger.info("Saved %d opportunities to DB" % len(opps))
