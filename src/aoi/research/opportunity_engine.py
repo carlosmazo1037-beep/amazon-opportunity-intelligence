@@ -1,5 +1,5 @@
 
-from research.matcher import match
+from aoi.research.matcher import match
 
 def build_opportunities(trends):
     opportunities=[]
