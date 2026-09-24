@@ -24,12 +24,24 @@ def _get_client():
 
 PROMPT_TEMPLATE = (
     'Responde SOLO con SI o NO.\n'
-    'Es el keyword "{keyword}" relevante para buscar productos fisicos en Amazon?\n'
-    'Relevantes: "under sink organizer", "cable management", "kitchen storage".\n'
-    'NO relevantes: "taylor swift", "election 2026", "weather", "nba finals".\n'
+    '\n'
+    'Pregunta: el keyword "{keyword}" es sobre un PRODUCTO FISICO '
+    'que se puede comprar en Amazon?\n'
+    '\n'
+    'SI si menciona o implica un producto fisico:\n'
+    '- "under sink organizer", "cable management", "kitchen storage"\n'
+    '- "air fryer accessories", "dog bed", "yoga mat"\n'
+    '\n'
+    'NO si es sobre:\n'
+    '- Deportes: equipos, partidos, jugadores, resultados\n'
+    '- Politica: elecciones, presidentes, guerras\n'
+    '- Celebridades: actores, cantantes, escandalos\n'
+    '- Noticias: muertes, accidentes, clima\n'
+    '- Eventos: premios, festivales, conciertos\n'
+    '- Geografia: paises, ciudades, regiones\n'
+    '\n'
     'Respuesta:'
 )
-
 
 def is_amazon_relevant(keyword: str) -> bool:
     client = _get_client()

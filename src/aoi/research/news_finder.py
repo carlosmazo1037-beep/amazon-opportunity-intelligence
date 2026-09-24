@@ -6,10 +6,41 @@ from aoi.core.logger import logger
 
 # Queries por defecto: buscan senales de problema y demanda
 DEFAULT_QUERIES = [
+    # Hogar y organizacion
     "under sink organizer problem",
-    "cable management messy",
     "closet organizer small space",
     "kitchen storage solution",
+    "drawer organizer tips",
+    "home organization hacks",
+    "small apartment storage",
+
+    # Limpieza
+    "mold removal bathroom",
+    "grout cleaning tips",
+    "carpet stain removal",
+    "best cleaning gadgets 2026",
+
+    # Cable management
+    "cable management messy",
+    "desk cable organization",
+    "charging station setup",
+    "home office cable clutter",
+
+    # Cocina
+    "air fryer accessories must have",
+    "meal prep containers best",
+    "kitchen gadgets 2026",
+    "instant pot recipes quick",
+
+    # Mascotas
+    "dog training tips home",
+    "cat litter box problems",
+    "pet hair removal furniture",
+
+    # Bebe y ninos
+    "baby nursery organization",
+    "toddler meal time tips",
+    "kids room storage ideas",
 ]
 
 
