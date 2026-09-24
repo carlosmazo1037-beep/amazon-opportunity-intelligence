@@ -2,10 +2,12 @@ streamlit
 pandas
 python-dotenv
 requests
-trendspy
+trendspyg
+feedparser
 praw
 openai
 reportlab
 openpyxl
-pytest
 xlsxwriter
+typer
+altair
