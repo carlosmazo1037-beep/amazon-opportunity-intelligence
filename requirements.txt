@@ -2,7 +2,7 @@ streamlit
 pandas
 python-dotenv
 requests
-pytrends
+trendspy
 praw
 openai
 reportlab
