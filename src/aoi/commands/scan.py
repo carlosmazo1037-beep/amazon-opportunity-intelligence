@@ -1,8 +1,6 @@
-"""aoi scan — scan sources for new opportunities."""
+﻿"""aoi scan."""
 from aoi.core.logger import logger
 
-
 def run() -> None:
-    logger.info("Running AOI scan...")
-    # TODO: mover aquí la lógica de pipeline.py::run (o lo que hacía 'scan')
-    print("✓ scan completado (stub)")
+    logger.info("Running aoi scan...")
+    print("[OK] scan completado (v0.4.0 conectara Reddit)")
