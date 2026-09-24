@@ -10,12 +10,15 @@ def _process_items(items: list, source: str, opportunities: list, seen: set, use
     skipped_match = 0
     initial = len(opportunities)
 
+    # Solo filtrar con IA los trends (los news ya son relevantes por diseno)
+    apply_ai = use_ai and source == "google_trends"
+
     for item in items:
         keyword = item.get("keyword", "")
         if not keyword:
             continue
 
-        if use_ai:
+        if apply_ai:
             if not is_amazon_relevant(keyword):
                 skipped_ai += 1
                 continue
@@ -45,8 +48,8 @@ def _process_items(items: list, source: str, opportunities: list, seen: set, use
             opp["status"] = overall_status(scores)
             opportunities.append(opp)
 
-    logger.info("%s: total=%d skipped_ai=%d skipped_match=%d added=%d" % (
-        source, len(items), skipped_ai, skipped_match, len(opportunities) - initial))
+    logger.info("%s: total=%d apply_ai=%s skipped_ai=%d skipped_match=%d added=%d" % (
+        source, len(items), apply_ai, skipped_ai, skipped_match, len(opportunities) - initial))
 
 
 def build_opportunities(trends: list, problems: list = None, use_ai: bool = True) -> list:
