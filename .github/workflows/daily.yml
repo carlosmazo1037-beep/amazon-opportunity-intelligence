@@ -16,8 +16,7 @@ jobs:
         with:
           python-version: "3.13"
       - run: pip install -e .
-      - run: aoi trends
-      - run: aoi news
+      - run: aoi scan
       - run: aoi report
       - uses: actions/upload-artifact@v4
         with:
