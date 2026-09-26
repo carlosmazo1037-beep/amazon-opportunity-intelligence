@@ -6,7 +6,7 @@
     badge: 'Más vendido',
     descripcion: 'Con cajón deslizante y 2 portalápices. Ordena tu espacio de trabajo.',
     imagen: 'img/organizador-gianotter.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/46Jsdmx'
   },
   {
     id: 'brazo-monitor',
@@ -14,7 +14,7 @@
     tag: 'Ergonomía',
     descripcion: 'Para pantallas de 13–34 pulgadas. Mejora tu postura y libera espacio.',
     imagen: 'img/brazo-monitor.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4xIwLEE'
   },
   {
     id: 'bridas-cable',
@@ -23,7 +23,7 @@
     badge: 'Más vendido',
     descripcion: 'Organiza todos los cables sin enredos. Ajustables y reutilizables.',
     imagen: 'img/bridas-cable.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4yVRcPF'
   },
   {
     id: 'organizador-cajones',
@@ -31,7 +31,7 @@
     tag: 'Cajones',
     descripcion: 'Para que cada cosa tenga su lugar. Ajustable y fácil de limpiar.',
     imagen: 'img/organizador-cajones.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/3T77Qg2'
   },
   {
     id: 'cajas-apilables',
@@ -39,7 +39,7 @@
     tag: 'Clósets',
     descripcion: 'Aprovecha el espacio vertical. Protegen la ropa del polvo y la humedad.',
     imagen: 'img/cajas-apilables.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4y8PhHj'
   },
   {
     id: 'ganchos-adhesivos',
@@ -47,7 +47,7 @@
     tag: 'Paredes',
     descripcion: 'Para puertas y paredes. Soportan peso y se quitan sin dejar marca.',
     imagen: 'img/ganchos-adhesivos.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4hNejFh'
   },
   {
     id: 'bolsas-vacio',
@@ -55,7 +55,7 @@
     tag: 'Almacenamiento',
     descripcion: 'Reduce el volumen hasta un 80%. Protege del polvo y la humedad.',
     imagen: 'img/bolsas-vacio.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4yZJyE0'
   },
   {
     id: 'cesta-lavanderia',
@@ -63,7 +63,7 @@
     tag: 'Lavandería',
     descripcion: 'Se guarda cuando no se usa. Perfecta para espacios pequeños.',
     imagen: 'img/cesta-lavanderia.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4cZrXDx'
   },
   {
     id: 'organizador-fregadero',
@@ -71,7 +71,7 @@
     tag: 'Cocina',
     descripcion: 'Aprovecha el espacio que todos ignoramos. Se adapta a las tuberías.',
     imagen: 'img/organizador-fregadero.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4xMJbM2'
   },
   {
     id: 'organizador-giratorio',
@@ -79,7 +79,7 @@
     tag: 'Cocina',
     descripcion: 'Gira 360°. Perfecto para especias, frascos y botiquín.',
     imagen: 'img/organizador-giratorio.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4xNa9TF'
   },
   {
     id: 'recipientes-rubbermaid',
@@ -87,7 +87,7 @@
     tag: 'Meal Prep',
     descripcion: 'Sin BPA, con tapas herméticas. Para almuerzo, meal prep y sobras.',
     imagen: 'img/recipientes-rubbermaid.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4y8xDU8'
   },
   {
     id: 'recipientes-dealusy',
@@ -95,7 +95,7 @@
     tag: 'Meal Prep',
     descripcion: 'A prueba de fugas. Aptos para microondas, congelador y lavavajillas.',
     imagen: 'img/recipientes-dealusy.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4hcoBzE'
   },
   {
     id: 'recipientes-vtopmart',
@@ -103,7 +103,7 @@
     tag: 'Despensa',
     descripcion: 'Transparentes y apilables. Para cocina, refrigerador y armario.',
     imagen: 'img/recipientes-vtopmart.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4hLCwwE'
   },
   {
     id: 'forros-airfryer',
@@ -111,7 +111,7 @@
     tag: 'Air Fryer',
     descripcion: 'Compatibles con Ninja y COSORI. Ahorran tiempo de limpieza.',
     imagen: 'img/forros-airfryer.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4hki0lj'
   },
   {
     id: 'rodillos-pelusa',
@@ -120,7 +120,7 @@
     badge: 'Nuevo',
     descripcion: 'Elimina el pelo de perro y gato de sofás, ropa y alfombras.',
     imagen: 'img/rodillos-pelusa.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4yj8AOr'
   },
   {
     id: 'correa-perro',
@@ -128,7 +128,7 @@
     tag: 'Paseo',
     descripcion: '16 pies, freno de una mano. Para perros medianos.',
     imagen: 'img/correa-perro.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4h7VMEo'
   },
   {
     id: 'gel-moho',
@@ -136,7 +136,23 @@
     tag: 'Limpieza',
     descripcion: 'Para juntas de lavadora, calafateo de ducha y lechada de baño.',
     imagen: 'img/gel-moho.jpg',
-    enlace: 'https://amzn.to/TU_ENLACE_AQUI'
+    enlace: 'https://amzn.to/4rxpgyX'
+  },
+  {
+    id: 'estante-flotante',
+    nombre: 'Conjunto de Estantes Flotantes (3 uds)',
+    tag: 'Limpieza',
+    descripcion: 'Aprovechan las paredes verticales sin ocupar suelo.',
+    imagen: 'img/estante-flotante.jpg',
+    enlace: 'https://amzn.to/4rxpgyX'
+  },
+  {
+    id: 'recipientes-reutilizables-dealusy',
+    nombre: 'Recipientes Reutilizables Dealusy (50 uds)',
+    tag: 'Limpieza',
+    descripcion: 'Recipientes con tapa reutilizables de 24 onzas para alimentos preparados, resistentes, a prueba de fugas, seguros, aptos para microondas, congelador y lavavajillas.',
+    imagen: 'img/recipientes-reutilizables-dealusy.jpg',
+    enlace: 'https://amzn.to/4hcoBzE'
   }
 ];
 

@@ -1,8 +1,8 @@
 ﻿const contacto = {
-  pinterest: 'https://www.pinterest.com/TU_USUARIO',
-  medium: 'https://medium.com/@TU_USUARIO',
-  tiktok: 'https://www.tiktok.com/@TU_USUARIO',
-  email: 'contacto@aoiintegrated.com'
+  pinterest: 'https://www.pinterest.com/carlosmazo10371041',
+  medium: 'https://medium.com/@carlosmazo1037',
+  tiktok: 'https://www.tiktok.com/@carlosmazo1037',
+  email: 'carlosmazo1037@gmail.com'//'contacto@aoiintegrated.com'
 };
 
 function renderContacto(contenedorId) {
