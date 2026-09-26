@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AOI Integrated Systems | Soluciones para tu Hogar y Oficina</title>
 <meta name="description" content="Productos recomendados, guías prácticas y soluciones para organizar tu hogar y oficina.">
-<link rel="icon" type="image/png" href="img/favicon.ico">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,52 +31,7 @@
 <section class="section" id="productos">
 <h2>Productos Recomendados</h2>
 <p class="subtitle">Una selección de artículos disponibles en Amazon</p>
-<div class="grid">
-
-<div class="card">
-<span class="badge-seller">Más vendido</span>
-<img src="img/organizador-gianotter.jpg" alt="Organizador de Escritorio Gianotter">
-<div class="card-body">
-<span class="tag">Home Office</span>
-<h3>Organizador de Escritorio Gianotter 4 Niveles</h3>
-<p>Con cajón deslizante y 2 portalápices. Ordena tu espacio de trabajo con estilo.</p>
-<a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
-</div>
-</div>
-
-<div class="card">
-<span class="badge-new">Nuevo</span>
-<img src="img/rodillos-pelusa.jpg" alt="Rodillos de Pelusa para Mascotas">
-<div class="card-body">
-<span class="tag">Mascotas</span>
-<h3>Rodillos de Pelusa para Pelo de Mascota (Pack 5)</h3>
-<p>Elimina el pelo de perro y gato de sofás, ropa y alfombras fácilmente.</p>
-<a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
-</div>
-</div>
-
-<div class="card">
-<span class="badge-seller">Más vendido</span>
-<img src="img/bridas-cable.jpg" alt="Bridas de Cable Nettbe">
-<div class="card-body">
-<span class="tag">Tecnología</span>
-<h3>Bridas de Cable Reutilizables Nettbe (60 uds)</h3>
-<p>Organiza todos los cables de tu casa sin enredos. Ajustables y reutilizables.</p>
-<a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
-</div>
-</div>
-
-<div class="card">
-<img src="img/bolsas-vacio.jpg" alt="Bolsas de Vacío">
-<div class="card-body">
-<span class="tag">Almacenamiento</span>
-<h3>Bolsas de Vacío para Cobijas y Ropa</h3>
-<p>Reduce el volumen hasta un 80%. Protege del polvo, la humedad y los insectos.</p>
-<a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
-</div>
-</div>
-
-</div>
+<div class="grid" id="productos-destacados"></div>
 <div style="text-align: center; margin-top: 30px;">
 <a href="productos.html" class="btn-secondary">Ver todos los productos</a>
 </div>
@@ -169,15 +124,16 @@
 <section class="section contact" id="contacto">
 <h2>Conecta con nosotros</h2>
 <p>Síguenos para más recomendaciones y guías prácticas</p>
-<div class="social">
-<a href="TU_PINTEREST" target="_blank" rel="noopener">Pinterest</a>
-<a href="TU_MEDIUM" target="_blank" rel="noopener">Medium</a>
-<a href="TU_TIKTOK" target="_blank" rel="noopener">TikTok</a>
-<a href="mailto:TU_EMAIL">Email</a>
-</div>
+<div class="social" id="contacto-redes"></div>
 </section>
 
 <script src="js/layout.js"></script>
+<script src="js/productos.js"></script>
+<script src="js/contacto.js"></script>
 <script src="js/main.js"></script>
+<script>
+  renderProductos('productos-destacados', 4);
+  renderContacto('contacto-redes');
+</script>
 </body>
 </html>
