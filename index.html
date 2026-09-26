@@ -5,218 +5,133 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AOI Integrated Systems | Soluciones para tu Hogar y Oficina</title>
 <meta name="description" content="Productos recomendados, guías prácticas y soluciones para organizar tu hogar y oficina.">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fafafa; color: #1d1d1f; line-height: 1.6; }
-a { text-decoration: none; color: inherit; }
-
-/* HEADER */
-.nav { background: #fff; border-bottom: 1px solid #e5e5ea; position: sticky; top: 0; z-index: 100; }
-.nav-inner { max-width: 1100px; margin: 0 auto; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 700; font-size: 1.1rem; color: #1d1d1f; }
-.logo span { color: #0071e3; }
-.nav-links { display: flex; gap: 24px; font-size: 0.9rem; color: #6e6e73; }
-.nav-links a:hover { color: #0071e3; }
-
-/* HERO */
-.hero { background: linear-gradient(135deg, #1d1d1f 0%, #2d2d30 100%); color: #fff; padding: 80px 20px; text-align: center; }
-.hero h1 { font-size: 2.5rem; margin-bottom: 16px; line-height: 1.2; }
-.hero p { font-size: 1.1rem; color: #a1a1a6; max-width: 600px; margin: 0 auto 32px; }
-.hero .btn-primary { display: inline-block; background: #0071e3; color: #fff; padding: 14px 32px; border-radius: 12px; font-weight: 600; font-size: 1rem; transition: background 0.2s; }
-.hero .btn-primary:hover { background: #0077ed; }
-
-/* SECCIONES */
-.section { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-.section h2 { font-size: 1.8rem; margin-bottom: 12px; text-align: center; }
-.section .subtitle { text-align: center; color: #6e6e73; margin-bottom: 40px; font-size: 1rem; }
-
-/* SOBRE NOSOTROS */
-.about { background: #fff; }
-.about-content { max-width: 700px; margin: 0 auto; text-align: center; color: #6e6e73; font-size: 1rem; line-height: 1.8; }
-
-/* PRODUCTOS */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
-.card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
-.card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-.card img { width: 100%; height: 220px; object-fit: cover; background: #e5e5ea; }
-.card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-.card .tag { display: inline-block; background: #e8f0fe; color: #0071e3; font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 20px; margin-bottom: 10px; align-self: flex-start; }
-.card h3 { font-size: 1.05rem; margin-bottom: 8px; line-height: 1.3; }
-.card p { font-size: 0.9rem; color: #6e6e73; margin-bottom: 16px; flex: 1; }
-.btn { display: inline-block; background: #0071e3; color: #fff; text-decoration: none; padding: 10px 18px; border-radius: 10px; text-align: center; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
-.btn:hover { background: #0077ed; }
-
-/* BLOG */
-.blog { background: #f5f5f7; }
-.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-.blog-card { background: #fff; padding: 24px; border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.2s; }
-.blog-card:hover { transform: translateY(-3px); }
-.blog-card h4 { font-size: 1rem; margin-bottom: 8px; line-height: 1.4; }
-.blog-card p { font-size: 0.85rem; color: #6e6e73; margin-bottom: 12px; }
-.blog-card .read { color: #0071e3; font-size: 0.85rem; font-weight: 600; }
-
-/* CONTACTO */
-.contact { background: #fff; text-align: center; }
-.contact p { color: #6e6e73; margin-bottom: 24px; }
-.social { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-.social a { display: inline-block; padding: 10px 20px; border: 1px solid #e5e5ea; border-radius: 10px; font-size: 0.9rem; color: #1d1d1f; transition: all 0.2s; }
-.social a:hover { border-color: #0071e3; color: #0071e3; }
-
-/* FOOTER */
-footer { background: #1d1d1f; color: #a1a1a6; padding: 40px 20px; text-align: center; font-size: 0.85rem; }
-footer .disclosure { max-width: 700px; margin: 0 auto 20px; line-height: 1.6; }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 1.8rem; }
-  .nav-links { display: none; }
-  .section h2 { font-size: 1.5rem; }
-}
-</style>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
-  <div class="nav-inner">
-    <div class="logo">AOI <span>Integrated Systems</span></div>
-    <div class="nav-links">
-      <a href="#productos">Productos</a>
-      <a href="#blog">Guías</a>
-      <a href="#contacto">Contacto</a>
-    </div>
-  </div>
+<div class="nav-inner">
+<a href="index.html" class="logo">
+<img src="img/logo.png" alt="AOI Integrated Systems">
+<span>AOI Integrated Systems</span>
+</a>
+<div class="nav-links">
+<a href="productos.html">Productos</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="#contacto">Contacto</a>
+</div>
+</div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <h1>Soluciones prácticas para tu hogar y oficina</h1>
-  <p>Productos recomendados y guías que te ayudan a organizar, limpiar y aprovechar mejor tu espacio.</p>
-  <a href="#productos" class="btn-primary">Ver productos</a>
+<h1>Soluciones prácticas para tu hogar y oficina</h1>
+<p>Productos recomendados y guías que te ayudan a organizar, limpiar y aprovechar mejor tu espacio.</p>
+<a href="productos.html" class="btn-primary">Ver productos</a>
 </section>
 
-<!-- SOBRE NOSOTROS -->
 <section class="section about" id="sobre">
-  <h2>Sobre AOI Integrated Systems</h2>
-  <p class="subtitle">Tecnología y soluciones para el día a día</p>
-  <div class="about-content">
-    <p>En AOI Integrated Systems seleccionamos productos que resuelven problemas reales. Cada recomendación está pensada para ahorrarte tiempo, espacio y dinero. Publicamos guías prácticas y enlazamos a Amazon para que puedas encontrarlos fácilmente.</p>
-  </div>
+<h2>Sobre AOI Integrated Systems</h2>
+<p class="subtitle">Tecnología y soluciones para el día a día</p>
+<div class="about-content">
+<p>Seleccionamos productos que resuelven problemas reales. Cada recomendación está pensada para ahorrarte tiempo, espacio y dinero.</p>
+<a href="nosotros.html" class="btn-secondary">Conoce más sobre nosotros</a>
+</div>
 </section>
 
-<!-- PRODUCTOS -->
 <section class="section" id="productos">
-  <h2>Productos Recomendados</h2>
-  <p class="subtitle">Selección de artículos disponibles en Amazon</p>
-  <div class="grid">
+<h2>Productos Recomendados</h2>
+<p class="subtitle">Una selección de artículos disponibles en Amazon</p>
+<div class="grid">
 
-    <div class="card">
-      <img src="img/organizador-gianotter.jpg" alt="Organizador de Escritorio Gianotter">
-      <div class="card-body">
-        <span class="tag">Home Office</span>
-        <h3>Organizador de Escritorio Gianotter 4 Niveles</h3>
-        <p>Con cajón deslizante y 2 portalápices. Ordena tu espacio de trabajo con estilo.</p>
-        <a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
-      </div>
-    </div>
+<div class="card">
+<img src="img/organizador-gianotter.jpg" alt="Organizador de Escritorio Gianotter">
+<div class="card-body">
+<span class="tag">Home Office</span>
+<h3>Organizador de Escritorio Gianotter 4 Niveles</h3>
+<p>Con cajón deslizante y 2 portalápices. Ordena tu espacio de trabajo con estilo.</p>
+<a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+</div>
+</div>
 
-    <div class="card">
-      <img src="img/rodillos-pelusa.jpg" alt="Rodillos de Pelusa para Mascotas">
-      <div class="card-body">
-        <span class="tag">Mascotas</span>
-        <h3>Rodillos de Pelusa para Pelo de Mascota (Pack 5)</h3>
-        <p>Elimina el pelo de perro y gato de sofás, ropa y alfombras fácilmente.</p>
-        <a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
-      </div>
-    </div>
+<div class="card">
+<img src="img/rodillos-pelusa.jpg" alt="Rodillos de Pelusa para Mascotas">
+<div class="card-body">
+<span class="tag">Mascotas</span>
+<h3>Rodillos de Pelusa para Pelo de Mascota (Pack 5)</h3>
+<p>Elimina el pelo de perro y gato de sofás, ropa y alfombras fácilmente.</p>
+<a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+</div>
+</div>
 
-    <div class="card">
-      <img src="img/bridas-cable.jpg" alt="Bridas de Cable Reutilizables">
-      <div class="card-body">
-        <span class="tag">Tecnología</span>
-        <h3>Bridas de Cable Reutilizables Nettbe (60 uds)</h3>
-        <p>Organiza todos los cables de tu casa sin enredos. Ajustables y reutilizables.</p>
-        <a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
-      </div>
-    </div>
+<div class="card">
+<img src="img/bridas-cable.jpg" alt="Bridas de Cable Nettbe">
+<div class="card-body">
+<span class="tag">Tecnología</span>
+<h3>Bridas de Cable Reutilizables Nettbe (60 uds)</h3>
+<p>Organiza todos los cables de tu casa sin enredos. Ajustables y reutilizables.</p>
+<a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+</div>
+</div>
 
-    <div class="card">
-      <img src="img/bolsas-vacio.jpg" alt="Bolsas de Vacío">
-      <div class="card-body">
-        <span class="tag">Almacenamiento</span>
-        <h3>Bolsas de Vacío para Cobijas y Ropa</h3>
-        <p>Reduce el volumen hasta un 80%. Protege del polvo, la humedad y los insectos.</p>
-        <a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
-      </div>
-    </div>
+<div class="card">
+<img src="img/bolsas-vacio.jpg" alt="Bolsas de Vacío">
+<div class="card-body">
+<span class="tag">Almacenamiento</span>
+<h3>Bolsas de Vacío para Cobijas y Ropa</h3>
+<p>Reduce el volumen hasta un 80%. Protege del polvo, la humedad y los insectos.</p>
+<a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+</div>
+</div>
 
-    <div class="card">
-      <img src="img/organizador-cajones.jpg" alt="Organizador de Cajones">
-      <div class="card-body">
-        <span class="tag">Organización</span>
-        <h3>Organizador de Cajones con Divisiones</h3>
-        <p>Para que cada cosa tenga su lugar. Ajustable y fácil de limpiar.</p>
-        <a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="img/ganchos-adhesivos.jpg" alt="Ganchos Adhesivos">
-      <div class="card-body">
-        <span class="tag">Hogar</span>
-        <h3>Ganchos Adhesivos sin Taladrar</h3>
-        <p>Para puertas y paredes. Soportan peso y se quitan sin dejar marca.</p>
-        <a class="btn" href="TU_ENLACE_AMAZON" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
-      </div>
-    </div>
-
-  </div>
+</div>
+<div style="text-align: center; margin-top: 30px;">
+<a href="productos.html" class="btn-secondary">Ver todos los productos</a>
+</div>
 </section>
 
-<!-- BLOG -->
 <section class="section blog" id="blog">
-  <h2>Guías Prácticas</h2>
-  <p class="subtitle">Consejos para organizar, limpiar y aprovechar tu espacio</p>
-  <div class="blog-grid">
+<h2>Guías Prácticas</h2>
+<p class="subtitle">Consejos para organizar, limpiar y aprovechar tu espacio</p>
+<div class="blog-grid">
 
-    <a class="blog-card" href="TU_ENLACE_MEDIUM" target="_blank" rel="noopener">
-      <h4>Cómo Organizar tu Escritorio en 15 Minutos</h4>
-      <p>El cambio más simple que transformó mi espacio de trabajo.</p>
-      <span class="read">Leer guía →</span>
-    </a>
+<a class="blog-card" href="TU_ENLACE_MEDIUM" target="_blank" rel="noopener">
+<h4>Cómo Organizar tu Escritorio en 15 Minutos</h4>
+<p>El cambio más simple que transformó mi espacio de trabajo.</p>
+<span class="read">Leer guía →</span>
+</a>
 
-    <a class="blog-card" href="TU_ENLACE_MEDIUM" target="_blank" rel="noopener">
-      <h4>Cómo Quitar el Pelo de Mascota de tus Muebles</h4>
-      <p>La solución que sí funciona y por qué las otras fallan.</p>
-      <span class="read">Leer guía →</span>
-    </a>
+<a class="blog-card" href="TU_ENLACE_MEDIUM" target="_blank" rel="noopener">
+<h4>Cómo Quitar el Pelo de Mascota de tus Muebles</h4>
+<p>La solución que sí funciona y por qué las otras fallan.</p>
+<span class="read">Leer guía →</span>
+</a>
 
-    <a class="blog-card" href="TU_ENLACE_MEDIUM" target="_blank" rel="noopener">
-      <h4>Cómo Organizar Todos los Cables de tu Casa</h4>
-      <p>Un sistema simple para acabar con el caos de cables.</p>
-      <span class="read">Leer guía →</span>
-    </a>
+<a class="blog-card" href="TU_ENLACE_MEDIUM" target="_blank" rel="noopener">
+<h4>Cómo Organizar Todos los Cables de tu Casa</h4>
+<p>Un sistema simple para acabar con el caos de cables.</p>
+<span class="read">Leer guía →</span>
+</a>
 
-  </div>
+</div>
 </section>
 
-<!-- CONTACTO -->
 <section class="section contact" id="contacto">
-  <h2>Conecta con nosotros</h2>
-  <p>Síguenos para más recomendaciones y guías prácticas</p>
-  <div class="social">
-    <a href="TU_PINTEREST" target="_blank" rel="noopener">Pinterest</a>
-    <a href="TU_MEDIUM" target="_blank" rel="noopener">Medium</a>
-    <a href="TU_TIKTOK" target="_blank" rel="noopener">TikTok</a>
-    <a href="mailto:TU_EMAIL">Email</a>
-  </div>
+<h2>Conecta con nosotros</h2>
+<p>Síguenos para más recomendaciones y guías prácticas</p>
+<div class="social">
+<a href="TU_PINTEREST" target="_blank" rel="noopener">Pinterest</a>
+<a href="TU_MEDIUM" target="_blank" rel="noopener">Medium</a>
+<a href="TU_TIKTOK" target="_blank" rel="noopener">TikTok</a>
+<a href="mailto:TU_EMAIL">Email</a>
+</div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <p class="disclosure">Como Afiliado de Amazon, gano comisiones por las compras adyacentes que cumplan los requisitos. Este sitio contiene enlaces de afiliado.</p>
-  <p>© 2026 AOI Integrated Systems. Todos los derechos reservados.</p>
+<p class="disclosure">Como Afiliado de Amazon, gano comisiones por las compras adyacentes que cumplan los requisitos. Este sitio contiene enlaces de afiliado.</p>
+<p>© 2026 AOI Integrated Systems. Todos los derechos reservados.</p>
 </footer>
 
+<script src="js/main.js"></script>
 </body>
 </html>
