@@ -151,7 +151,7 @@
     nombre: 'Recipientes Reutilizables Dealusy (50 uds)',
     tag: 'Limpieza',
     descripcion: 'Recipientes con tapa reutilizables de 24 onzas para alimentos preparados, resistentes, a prueba de fugas, seguros, aptos para microondas, congelador y lavavajillas.',
-    imagen: 'img/recipientes-reutilizables-dealusy.jpg',
+    imagen: 'img/recipientes-reutilizables.jpg',
     enlace: 'https://amzn.to/4hcoBzE'
   }
 ];
