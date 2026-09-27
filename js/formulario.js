@@ -1,4 +1,4 @@
-﻿const WEB3FORMS_ACCESS_KEY = '162beb59-485d-47f0-a0e6-8751f0fee919';
+﻿const WEB3FORMS_ACCESS_KEY = 'TU_ACCESS_KEY_AQUI';
 
 function renderFormularioContacto(contenedorId) {
   const contenedor = document.getElementById(contenedorId);
@@ -8,6 +8,7 @@ function renderFormularioContacto(contenedorId) {
     <form id="contactForm" class="contact-form">
       <input type="hidden" name="access_key" value="${WEB3FORMS_ACCESS_KEY}">
       <input type="hidden" name="subject" value="Nuevo mensaje desde AOI Integrated Systems">
+      <input type="hidden" name="from_name" value="AOI Integrated Systems">
       <input type="checkbox" name="botcheck" class="hidden" style="display:none">
       
       <div class="form-group">
