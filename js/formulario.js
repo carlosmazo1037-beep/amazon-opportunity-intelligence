@@ -57,7 +57,7 @@ function renderFormularioContacto(contenedorId) {
       const result = await response.json();
       
       if (result.success) {
-        status.textContent = '¡Mensaje enviado! Te responderemos pronto.';
+       status.innerHTML = '✅ ¡Mensaje enviado con éxito!<br><span style="font-size: 0.85rem; color: #6e6e73;">Muchas gracias por escribirnos. Te responderemos lo antes posible.</span>';
         status.className = 'form-status success';
         form.reset();
       } else {
