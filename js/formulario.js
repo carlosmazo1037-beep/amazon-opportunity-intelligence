@@ -5,11 +5,10 @@ function renderFormularioContacto(contenedorId) {
   if (!contenedor) return;
   
   contenedor.innerHTML = `
-    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+    <form id="contactForm" class="contact-form">
       <input type="hidden" name="access_key" value="${WEB3FORMS_ACCESS_KEY}">
       <input type="hidden" name="subject" value="Nuevo mensaje desde AOI Integrated Systems">
       <input type="hidden" name="from_name" value="AOI Integrated Systems">
-      <input type="checkbox" name="botcheck" class="hidden" style="display:none">
       
       <div class="form-group">
         <label for="nombre">Nombre</label>
@@ -26,7 +25,51 @@ function renderFormularioContacto(contenedorId) {
         <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
       </div>
       
-      <button type="submit" class="btn-primary">Enviar mensaje</button>
+      <button type="submit" class="btn-primary" id="btnEnviar">Enviar mensaje</button>
+      <p id="formStatus" class="form-status"></p>
     </form>
   `;
+  
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  const btn = document.getElementById('btnEnviar');
+  
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    status.textContent = '';
+    
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+    
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        status.textContent = '¡Mensaje enviado! Te responderemos pronto.';
+        status.className = 'form-status success';
+        form.reset();
+      } else {
+        status.textContent = 'Error: ' + (result.message || 'Intenta de nuevo.');
+        status.className = 'form-status error';
+      }
+    } catch (error) {
+      status.textContent = 'Error de conexión. Intenta de nuevo.';
+      status.className = 'form-status error';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensaje';
+    }
+  });
 }
