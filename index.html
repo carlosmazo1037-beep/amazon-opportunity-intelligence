@@ -41,57 +41,7 @@
 <h2>Guías Prácticas</h2>
 <p class="subtitle">Consejos para organizar, limpiar y aprovechar tu espacio</p>
 <div class="carousel-wrapper">
-<div class="carousel-track">
-
-<a class="carousel-card" href="TU_ENLACE_MEDIUM_1" target="_blank" rel="noopener">
-<h4>Cómo Organizar tu Escritorio en 15 Minutos</h4>
-<p>El cambio más simple que transformó mi espacio de trabajo.</p>
-<span class="read">Leer guía →</span>
-</a>
-
-<a class="carousel-card" href="TU_ENLACE_MEDIUM_2" target="_blank" rel="noopener">
-<h4>Cómo Quitar el Pelo de Mascota de tus Muebles</h4>
-<p>La solución que sí funciona y por qué las otras fallan.</p>
-<span class="read">Leer guía →</span>
-</a>
-
-<a class="carousel-card" href="TU_ENLACE_MEDIUM_3" target="_blank" rel="noopener">
-<h4>Cómo Organizar Todos los Cables de tu Casa</h4>
-<p>Un sistema simple para acabar con el caos de cables.</p>
-<span class="read">Leer guía →</span>
-</a>
-
-<a class="carousel-card" href="TU_ENLACE_MEDIUM_4" target="_blank" rel="noopener">
-<h4>Cómo Guardar Cobijas Ocupando la Mitad del Espacio</h4>
-<p>Bolsas de vacío que reducen el volumen hasta un 80%.</p>
-<span class="read">Leer guía →</span>
-</a>
-
-<a class="carousel-card" href="TU_ENLACE_MEDIUM_5" target="_blank" rel="noopener">
-<h4>Cómo Preparar la Comida de la Semana</h4>
-<p>Recipientes que no se derraman y aguantan el microondas.</p>
-<span class="read">Leer guía →</span>
-</a>
-
-<a class="carousel-card" href="TU_ENLACE_MEDIUM_6" target="_blank" rel="noopener">
-<h4>Cómo Eliminar el Moho de la Lavadora</h4>
-<p>Gel removedor que actúa sin frotar.</p>
-<span class="read">Leer guía →</span>
-</a>
-
-<a class="carousel-card" href="TU_ENLACE_MEDIUM_7" target="_blank" rel="noopener">
-<h4>Cómo Organizar tus Cajones</h4>
-<p>Para que cada cosa tenga su lugar.</p>
-<span class="read">Leer guía →</span>
-</a>
-
-<a class="carousel-card" href="TU_ENLACE_MEDIUM_8" target="_blank" rel="noopener">
-<h4>Cómo Mudarte sin Comprar Diez Cajas</h4>
-<p>Una bolsa de transporte extragrande lo resuelve.</p>
-<span class="read">Leer guía →</span>
-</a>
-
-</div>
+<div class="carousel-track" id="guias-carrusel"></div>
 </div>
 </section>
 
@@ -129,10 +79,12 @@
 
 <script src="js/layout.js"></script>
 <script src="js/productos.js"></script>
+<script src="js/guias.js"></script>
 <script src="js/contacto.js"></script>
 <script src="js/main.js"></script>
 <script>
   renderProductos('productos-destacados', 4);
+  renderGuias('guias-carrusel');
   renderContacto('contacto-redes');
 </script>
 </body>
