@@ -78,18 +78,27 @@
 </div>
 </section>
 
-<section class="section contact">
+<section class="section contact" id="contacto">
 <h2>Conecta con nosotros</h2>
 <p>Síguenos para más recomendaciones y guías prácticas</p>
-<div class="social">
-<a href="TU_PINTEREST" target="_blank" rel="noopener">Pinterest</a>
-<a href="TU_MEDIUM" target="_blank" rel="noopener">Medium</a>
-<a href="TU_TIKTOK" target="_blank" rel="noopener">TikTok</a>
-<a href="mailto:TU_EMAIL">Email</a>
-</div>
+<div class="social" id="contacto-redes"></div>
+
+<h2 style="margin-top: 50px;">Escríbenos</h2>
+<p>¿Tienes una pregunta o sugerencia? Déjanos un mensaje.</p>
+<div id="formulario-contacto"></div>
 </section>
 
 <script src="js/layout.js"></script>
+<script src="js/productos.js"></script>
+<script src="js/guias.js"></script>
+<script src="js/contacto.js"></script>
+<script src="js/formulario.js"></script>
 <script src="js/main.js"></script>
+<script>
+  renderProductos('productos-destacados', 4);
+  renderGuias('guias-carrusel');
+  renderContacto('contacto-redes');
+  renderFormularioContacto('formulario-contacto');
+</script>
 </body>
 </html>
