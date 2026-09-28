@@ -15,6 +15,7 @@
         </button>
         <div class="nav-links" id="navLinks">
           <a href="productos.html" class="${currentPage === 'productos.html' ? 'active' : ''}">Productos</a>
+          <a href="index.html#recursos" class="${currentPage === 'index.html' ? 'active' : ''}">Recursos</a>
           <a href="nosotros.html" class="${currentPage === 'nosotros.html' ? 'active' : ''}">Nosotros</a>
           <a href="index.html#contacto">Contacto</a>
         </div>
@@ -24,7 +25,7 @@
   
   const footerHTML = `
     <footer>
-      <p class="disclosure">Como Afiliado de Amazon, gano comisiones por las compras adyacentes que cumplan los requisitos. Este sitio contiene enlaces de afiliado.</p>
+      <p class="disclosure">Como Afiliado de Amazon y Digistore24, gano comisiones por las compras elegibles que se realicen a través de mis enlaces. Este sitio contiene enlaces de afiliado.</p>
       <p>© 2026 AOI Integrated Systems. Todos los derechos reservados.</p>
     </footer>
   `;
