@@ -144,7 +144,7 @@
     tag: 'Limpieza',
     descripcion: 'Aprovechan las paredes verticales sin ocupar suelo.',
     imagen: 'img/estante-flotante.jpg',
-    enlace: 'https://amzn.to/4rxpgyX'
+    enlace: 'https://amzn.to/4xMJbM2'
   },
   {
     id: 'recipientes-reutilizables-dealusy',
