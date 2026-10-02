@@ -163,7 +163,7 @@ function renderProductos(contenedorId, limite) {
   const lista = limite ? productos.slice(0, limite) : productos;
   
   contenedor.innerHTML = lista.map(p => `
-    <div class="card">
+    <div class="card" id="${p.id}">
       ${p.badge ? `<span class="badge-seller">${p.badge}</span>` : ''}
       <img src="${p.imagen}" alt="${p.nombre}">
       <div class="card-body">
@@ -183,7 +183,7 @@ function renderProductosPorCategoria(contenedorId, ids) {
   const lista = productos.filter(p => ids.includes(p.id));
   
   contenedor.innerHTML = lista.map(p => `
-    <div class="card">
+    <div class="card" id="${p.id}">
       ${p.badge ? `<span class="badge-seller">${p.badge}</span>` : ''}
       <img src="${p.imagen}" alt="${p.nombre}">
       <div class="card-body">

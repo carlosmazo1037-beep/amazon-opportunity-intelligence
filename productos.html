@@ -7,6 +7,14 @@
 <meta name="description" content="Catálogo completo de productos recomendados para organizar tu hogar y oficina.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Open Graph para Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Catálogo de Productos Recomendados | AOI Integrated Systems">
+<meta property="og:description" content="Todos los artículos que recomendamos, disponibles en Amazon. Organiza tu hogar y oficina.">
+<meta property="og:image" content="https://carlosmazo1037-beep.github.io/amazon-opportunity-intelligence/img/logo.png">
+<meta property="og:url" content="https://carlosmazo1037-beep.github.io/amazon-opportunity-intelligence/productos.html">
+<meta property="og:site_name" content="AOI Integrated Systems">
 </head>
 <body>
 
@@ -49,5 +57,26 @@
   renderProductosPorCategoria('cat-cocina', ['recipientes-rubbermaid', 'recipientes-dealusy', 'recipientes-vtopmart', 'forros-airfryer']);
   renderProductosPorCategoria('cat-mascotas', ['rodillos-pelusa', 'correa-perro', 'gel-moho']);
 </script>
+
+<!-- Script de scroll automático a producto específico -->
+<script>
+  window.addEventListener('load', function() {
+    if (window.location.hash) {
+      const elemento = document.querySelector(window.location.hash);
+      if (elemento) {
+        setTimeout(() => {
+          elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Resaltar el producto por 2 segundos
+          elemento.style.boxShadow = '0 0 0 3px #2563eb';
+          elemento.style.transition = 'box-shadow 0.3s ease';
+          setTimeout(() => {
+            elemento.style.boxShadow = '';
+          }, 2000);
+        }, 300);
+      }
+    }
+  });
+</script>
+
 </body>
 </html>

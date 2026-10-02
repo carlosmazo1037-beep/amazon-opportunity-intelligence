@@ -26,6 +26,9 @@
   const footerHTML = `
     <footer>
       <p class="disclosure">Como Afiliado de Amazon y Digistore24, gano comisiones por las compras elegibles que se realicen a través de mis enlaces. Este sitio contiene enlaces de afiliado.</p>
+      <p style="margin-top:10px;">
+        <a href="politicas.html" style="color:#2563eb; text-decoration:none; font-weight:600;">Políticas y Divulgación</a>
+      </p>
       <p>© 2026 AOI Integrated Systems. Todos los derechos reservados.</p>
     </footer>
   `;
