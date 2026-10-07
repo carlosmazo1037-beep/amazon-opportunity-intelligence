@@ -26,6 +26,15 @@
     enlace: 'https://amzn.to/4yVRcPF'
   },
   {
+    id: 'Pelota-grande ',
+    nombre: 'Pelota grande de alta calidad con copos de nieve, elevación lenta sin olor, no tóxica',
+    tag: 'Salud y Bienestar',
+    badge: 'Más vendido',
+    descripcion: 'lindo juguete sensorial para apretar, propiedad de una familia estadounidense, fácil de limpiar, duradera, Alivio silencioso del estrés',
+    imagen: 'img/Kiedle.png',
+    enlace: 'https://amzn.to/4hAnie0'
+  },
+  {
     id: 'organizador-cajones',
     nombre: 'Organizador de Cajones con Divisiones',
     tag: 'Cajones',
