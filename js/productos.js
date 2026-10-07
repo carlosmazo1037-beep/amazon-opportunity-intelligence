@@ -26,7 +26,7 @@
     enlace: 'https://amzn.to/4yVRcPF'
   },
   {
-    id: 'Pelota-grande ',
+    id: 'Pelota-grande',
     nombre: 'Pelota grande de alta calidad con copos de nieve, elevación lenta sin olor, no tóxica',
     tag: 'Salud y Bienestar',
     badge: 'Más vendido',
