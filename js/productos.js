@@ -162,54 +162,47 @@
     descripcion: 'Recipientes con tapa reutilizables de 24 onzas para alimentos preparados, resistentes, a prueba de fugas, seguros, aptos para microondas, congelador y lavavajillas.',
     imagen: 'img/recipientes-reutilizables.jpg',
     enlace: 'https://amzn.to/4hcoBzE'
-  }
-  ,
+  },
   {
-    id: 'Sierra-circular-inalambrica',
+    id: 'sierra-circular-inalambrica',
     nombre: 'Sierra circular inalámbrica de 20 V MAX',
     tag: 'herramientas',
     descripcion: 'Haz cortes exigentes con facilidad utilizando el 20 V MAX* 6-1/2 pulgadas. Sierra circular. Con un 6-1/2 pulgadas. Hoja con punta de carburo alimentada por un potente motor de 5.150 rpm, este cortador de madera ligero ofrece una capacidad de bisel de 0 a 50 para la máxima versatilidad de una sierra de mano eléctrica. La batería y el cargador se venden por separado',
     imagen: 'img/sierra.jpg',
     enlace: 'https://amzn.to/4s9F4IJ'
-  }
-  ,
+  },
   {
-    id: 'FOXBC-Hoja-sierra',
+    id: 'fOXBC-Hoja-sierra',
     nombre: 'FOXBC Hoja de sierra circular de 6-1/2 pulgadas',
     tag: 'herramientas',
     descripcion: 'FOXBC Hoja de sierra circular de 6-1/2 pulgadas 40T 60T Paquete Combo, Acabado Ultra Fino para Corte de Madera, Ranura Delgada con Árbol de 5/8 pulgadas.',
     imagen: 'img/discos.jpg',
     enlace: 'https://link.amazon/B07yqMDif'
-  }
-  ,
+  },
   {
-    id: 'Pistola-pulverización',
+    id: 'pistola-pulverización',
     nombre: 'Pistola de pulverización de aire HVLP 819',
     tag: 'herramientas',
     descripcion: 'Kit de pistola de pulverización de aire HVLP 819 con boquillas de HVLP - Pulverizador de pintura con regulador y separador de aceite y agua, pistola de pintura en aerosol automotriz.',
     imagen: 'img/pintura.jpg',
     enlace: 'https://amzn.to/3VQsRMT'
-  }
-  ,
+  },
   {
-    id: 'Kasa-Smart-Light',
+    id: 'kasa-Smart-Light',
     nombre: 'Kasa Smart Light Switch, Single Pole, Need Neutral Wire, HS200 Wi-Fi de 2.4 GHz, funciona con Alexa y Google Home, certificado UL, no requiere concentrador, blanco',
     tag: 'herramientas',
     descripcion: 'Diseñado y desarrollado en Silicon Valley, Kasa cuenta con la confianza de más de 4 millones de usuarios. Certificado UL para uso seguro. Dimensiones sin panel: 4.13 x 1.71 x 1.74 pulgadas. Requisitos del sistema: Android 5.0 o superior, iOS 10 o superior.',
-    imagen: 'img/recipientes-reutilizables.jpg',
+    imagen: 'img/luz.jpg',
     enlace: 'https://amzn.to/4B3skXX'
-  }
-  ,
+  },
   {
-    id: 'Toma-corriente',
+    id: 'toma-corriente',
     nombre: 'Toma de corriente USB, 4.8 A',
     tag: 'herramientas',
     descripcion: 'Toma de corriente USB, 4.8 A de alta velocidad USB C/A, puertos de cargador de pared, toma de pared de receptáculo resistente a manipulaciones de 20 amperios, placa de pared sin tornillos.',
     imagen: 'img/toma.jpg',
     enlace: 'https://amzn.to/4sgf4LF'
-  }
-
-   ,
+  },
   {
     id: 'camara',
     nombre: 'Tewiky Cámara web Full HD',
