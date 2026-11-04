@@ -208,7 +208,7 @@
     nombre: 'Tewiky Cámara web Full HD',
     tag: 'tecnología',
     descripcion: 'Tewiky Cámara web Full HD con micrófono integrado y trípode giratorio, video 1080P y cámara gran angular, cubierta de privacidad, para PC de escritorio o computadora portátil.',
-    imagen: 'img/camera.jpg',
+    imagen: 'img/camara.jpg',
     enlace: 'https://amzn.to/4y3fAOu'
   }
 ];
