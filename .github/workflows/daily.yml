@@ -29,6 +29,7 @@ jobs:
           git config user.email "bot@aoi.local"
           git add reports/ database/ logs/
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: daily scan [skip ci]"
+          git pull origin main --no-rebase
           git push
       - uses: actions/upload-artifact@v4
         with:
