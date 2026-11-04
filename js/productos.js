@@ -176,7 +176,7 @@
     nombre: 'FOXBC Hoja de sierra circular de 6-1/2 pulgadas',
     tag: 'herramientas',
     descripcion: 'FOXBC Hoja de sierra circular de 6-1/2 pulgadas 40T 60T Paquete Combo, Acabado Ultra Fino para Corte de Madera, Ranura Delgada con Árbol de 5/8 pulgadas.',
-    imagen: 'img/discos.jpg',
+    imagen: 'img/discos.png',
     enlace: 'https://link.amazon/B07yqMDif'
   },
   {
