@@ -165,7 +165,7 @@
   }
   ,
   {
-    id: 'Sierra-circular-inalámbrica',
+    id: 'Sierra-circular-inalambrica',
     nombre: 'Sierra circular inalámbrica de 20 V MAX',
     tag: 'herramientas',
     descripcion: 'Haz cortes exigentes con facilidad utilizando el 20 V MAX* 6-1/2 pulgadas. Sierra circular. Con un 6-1/2 pulgadas. Hoja con punta de carburo alimentada por un potente motor de 5.150 rpm, este cortador de madera ligero ofrece una capacidad de bisel de 0 a 50 para la máxima versatilidad de una sierra de mano eléctrica. La batería y el cargador se venden por separado',
