@@ -97,4 +97,14 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
+
+// dentro del DOMContentLoaded de layout.js, después de insertar nav/footer
+const navEl = document.getElementById('siteNav');
+if (navEl) {
+  const onScroll = () => navEl.classList.toggle('is-scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
 });
