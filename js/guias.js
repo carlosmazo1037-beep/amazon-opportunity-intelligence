@@ -1,61 +1,19 @@
 ﻿const guias = [
-  {
-    id: 'escritorio',
-    titulo: 'Cómo Organizar tu Escritorio en 15 Minutos',
-    descripcion: 'El cambio más simple que transformó mi espacio de trabajo.',
-    enlace: 'https://medium.com/@carlosmazo1037/desk-organizer-2f7507d1d26b'
-  },
-  {
-    id: 'pelo-mascota',
-    titulo: 'Cómo Quitar el Pelo de Mascota de tus Muebles',
-    descripcion: 'La solución que sí funciona y por qué las otras fallan.',
-    enlace: 'https://medium.com/@carlosmazo1037/c%C3%B3mo-quitar-el-pelo-de-mascota-de-tus-muebles-9e91850c1ff8'
-  },
-  {
-    id: 'Organizar-Despensa',
-    titulo: 'Cómo Organizar tu Despensa',
-    descripcion: 'Recipientes transparentes para que todo se vea y sea accesible.',
-    enlace: 'https://medium.com/@carlosmazo1037/pantry-organizer-c109a33b86ff'
-  },
-  {
-    id: 'Organizar-Comidas',
-    titulo: 'Cómo Organizar tus Comidas de la Semana',
-    descripcion: 'Preparar la comida de la semana ahorra tiempo y dinero.',
-    enlace: 'https://medium.com/@carlosmazo1037/los-mejores-recipientes-para-meal-prep-305b144ecb1c'
-  },
-  {
-    id: 'correa-retractil',
-    titulo: 'Cómo Evitar que tu Perro se Enrede',
-    descripcion: 'Pasear a un perro debería ser relajante. Soluciones prácticas.',
-    enlace: 'https://medium.com/@carlosmazo1037/dog-leash-da39366023cd'
-  },
-  {
-    id: 'moho',
-    titulo: 'Cómo Eliminar el Moho de la Lavadora',
-    descripcion: 'Gel removedor que actúa sin frotar. Mantenimiento profundo.',
-    enlace: 'https://medium.com/@carlosmazo1037/c%C3%B3mo-eliminar-el-moho-del-ba%C3%B1o-gu%C3%ADa-paso-a-paso-2a21b0c1b211'
-  },
-  {
-    id: 'Air-Fryer',
-    titulo: 'Accesorios Imprescindibles para tu Air Fryer',
-    descripcion: 'Mantén la freidora limpia sin perder tiempo en el intento.',
-    enlace: 'https://medium.com/@carlosmazo1037/5-accesorios-imprescindibles-para-tu-air-fryer-df98e3d0df4a'
-  },
-  {
-    id: 'Estantes flotantes',
-    titulo: 'Estantes flotantes: aprovecha las paredes',
-    descripcion: 'Cuando vives en un espacio pequeño, cada centímetro cuenta.',
-    enlace: 'https://medium.com/@carlosmazo1037/7-ideas-de-almacenamiento-para-apartamentos-peque%C3%B1os-d48416029001'
-  }
+  { id: 'escritorio', titulo: 'Cómo Organizar tu Escritorio en 15 Minutos', descripcion: 'El cambio más simple que transformó mi espacio de trabajo.', enlace: 'https://medium.com/@carlosmazo1037/desk-organizer-2f7507d1d26b' },
+  { id: 'pelo-mascota', titulo: 'Cómo Quitar el Pelo de Mascota de tus Muebles', descripcion: 'La solución que sí funciona y por qué las otras fallan.', enlace: 'https://medium.com/@carlosmazo1037/c%C3%B3mo-quitar-el-pelo-de-mascota-de-tus-muebles-9e91850c1ff8' },
+  { id: 'Organizar-Despensa', titulo: 'Cómo Organizar tu Despensa', descripcion: 'Recipientes transparentes para que todo se vea y sea accesible.', enlace: 'https://medium.com/@carlosmazo1037/pantry-organizer-c109a33b86ff' },
+  { id: 'Organizar-Comidas', titulo: 'Cómo Organizar tus Comidas de la Semana', descripcion: 'Preparar la comida de la semana ahorra tiempo y dinero.', enlace: 'https://medium.com/@carlosmazo1037/los-mejores-recipientes-para-meal-prep-305b144ecb1c' },
+  { id: 'correa-retractil', titulo: 'Cómo Evitar que tu Perro se Enrede', descripcion: 'Pasear a un perro debería ser relajante.', enlace: 'https://medium.com/@carlosmazo1037/dog-leash-da39366023cd' },
+  { id: 'moho', titulo: 'Cómo Eliminar el Moho de la Lavadora', descripcion: 'Gel removedor que actúa sin frotar.', enlace: 'https://medium.com/@carlosmazo1037/c%C3%B3mo-eliminar-el-moho-del-ba%C3%B1o-gu%C3%ADa-paso-a-paso-2a21b0c1b211' },
+  { id: 'Air-Fryer', titulo: 'Accesorios Imprescindibles para tu Air Fryer', descripcion: 'Mantén la freidora limpia sin perder tiempo.', enlace: 'https://medium.com/@carlosmazo1037/5-accesorios-imprescindibles-para-tu-air-fryer-df98e3d0df4a' },
+  { id: 'Estantes flotantes', titulo: 'Estantes flotantes: aprovecha las paredes', descripcion: 'Cuando vives en un espacio pequeño, cada centímetro cuenta.', enlace: 'https://medium.com/@carlosmazo1037/7-ideas-de-almacenamiento-para-apartamentos-peque%C3%B1os-d48416029001' }
 ];
 
 function renderGuias(contenedorId) {
   const contenedor = document.getElementById(contenedorId);
   if (!contenedor) return;
-  
-  contenedor.innerHTML = guias.map((g, index) => `
+  contenedor.innerHTML = guias.map(g => `
     <div class="carousel-card">
-      <span class="tech-label" style="margin-bottom:12px; color:var(--texto-mutado);">DOC_0${index + 1} // LOG</span>
       <h4>${g.titulo}</h4>
       <p>${g.descripcion}</p>
       <a class="read" href="${g.enlace}" target="_blank" rel="noopener">Leer guía →</a>
