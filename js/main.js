@@ -1,45 +1,44 @@
-﻿// main.js — Interacción de AOI Integrated Systems
-// Reveal + Carrusel (espera render) + Búsqueda de catálogo
-
-(function () {
+﻿(function () {
   'use strict';
 
-  /* =========================================================
-     1. REVEAL AL SCROLL
-     ========================================================= */
+  // 1. Reveal al scroll (sin conflicto)
   function initReveal() {
     if (!('IntersectionObserver' in window)) return;
-    const targets = document.querySelectorAll(
-      '.card, .blog-card, .testimonial, .carousel-card, .category-card, .how-step, .section h2'
-    );
-    if (!targets.length) return;
-
+    const targets = document.querySelectorAll('.card, .carousel-card, .category-card, .how-step');
     targets.forEach(el => el.classList.add('reveal'));
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
     targets.forEach(el => io.observe(el));
   }
 
-  /* =========================================================
-     2. CARRUSEL — se inicializa cuando el track tiene hijos
-     (Soluciona el problema de que renderGuias se ejecuta después)
-     ========================================================= */
+  // 2. Carrusel de Guías y Productos
   function setupCarousel(wrapper) {
     const track = wrapper.querySelector('.carousel-track');
-    if (!track || !track.children.length) return;
-    if (wrapper.dataset.carouselReady === '1') return;
-    wrapper.dataset.carouselReady = '1';
+    if (!track) return;
+
+    // Esperar a que renderGuias() llene el track
+    if (track.children.length === 0) {
+      const observer = new MutationObserver(() => {
+        if (track.children.length > 0) {
+          observer.disconnect();
+          startCarousel(wrapper, track);
+        }
+      });
+      observer.observe(track, { childList: true });
+    } else {
+      startCarousel(wrapper, track);
+    }
+  }
+
+  function startCarousel(wrapper, track) {
+    if (wrapper.dataset.ready === '1') return;
+    wrapper.dataset.ready = '1';
 
     let offset = 0;
     let isDragging = false;
@@ -50,7 +49,7 @@
     const getStep = () => {
       const first = track.children[0];
       if (!first) return 300;
-      const gap = parseFloat(getComputedStyle(track).gap) || 18;
+      const gap = parseFloat(getComputedStyle(track).gap) || 24;
       return first.getBoundingClientRect().width + gap;
     };
 
@@ -58,29 +57,23 @@
     const clamp = v => Math.max(-getMaxOffset(), Math.min(0, v));
     const apply = () => { track.style.transform = `translateX(${offset}px)`; };
 
-    const next = () => { offset = clamp(offset - getStep()); apply(); };
-    const prev = () => { offset = clamp(offset + getStep()); apply(); };
-
     // Flechas
     const nav = document.createElement('div');
     nav.className = 'carousel-nav';
     nav.innerHTML = `
-      <button class="carousel-btn carousel-btn--prev" aria-label="Anterior" type="button">‹</button>
-      <button class="carousel-btn carousel-btn--next" aria-label="Siguiente" type="button">›</button>
+      <button class="carousel-btn prev" type="button">‹</button>
+      <button class="carousel-btn next" type="button">›</button>
     `;
     wrapper.appendChild(nav);
 
-    nav.querySelector('.carousel-btn--prev').addEventListener('click', () => { prev(); restartAutoPlay(); });
-    nav.querySelector('.carousel-btn--next').addEventListener('click', () => { next(); restartAutoPlay(); });
+    nav.querySelector('.prev').addEventListener('click', () => { offset = clamp(offset + getStep()); apply(); restart(); });
+    nav.querySelector('.next').addEventListener('click', () => { offset = clamp(offset - getStep()); apply(); restart(); });
 
     // Drag
     const onDown = x => {
-      isDragging = true;
-      startX = x;
-      startOffset = offset;
+      isDragging = true; startX = x; startOffset = offset;
       track.style.transition = 'none';
-      wrapper.classList.add('is-dragging');
-      stopAutoPlay();
+      stop();
     };
     const onMove = x => {
       if (!isDragging) return;
@@ -91,72 +84,50 @@
       if (!isDragging) return;
       isDragging = false;
       track.style.transition = '';
-      wrapper.classList.remove('is-dragging');
-      const step = getStep();
-      offset = clamp(Math.round(offset / step) * step);
+      offset = clamp(Math.round(offset / getStep()) * getStep());
       apply();
-      restartAutoPlay();
+      restart();
     };
 
-    wrapper.addEventListener('mousedown', e => {
-      if (e.target.closest('.read')) return; // no bloquear clic del botón
-      onDown(e.clientX);
-    });
+    wrapper.addEventListener('mousedown', e => { if (!e.target.closest('a')) onDown(e.clientX); });
     window.addEventListener('mousemove', e => onMove(e.clientX));
     window.addEventListener('mouseup', onUp);
-    wrapper.addEventListener('touchstart', e => onDown(e.touches[0].clientX), { passive: true });
+    wrapper.addEventListener('touchstart', e => { if (!e.target.closest('a')) onDown(e.touches[0].clientX); }, { passive: true });
     window.addEventListener('touchmove', e => { if (isDragging) onMove(e.touches[0].clientX); }, { passive: true });
     window.addEventListener('touchend', onUp);
 
-    // Autoplay pausable
-    wrapper.addEventListener('mouseenter', stopAutoPlay);
-    wrapper.addEventListener('mouseleave', restartAutoPlay);
+    wrapper.addEventListener('mouseenter', stop);
+    wrapper.addEventListener('mouseleave', restart);
 
-    function startAutoPlay() {
-      stopAutoPlay();
+    function start() {
+      stop();
       autoPlayId = setInterval(() => {
-        if (getMaxOffset() === 0) return; // no hay overflow
+        if (getMaxOffset() === 0) return;
         if (offset <= -getMaxOffset() + 4) {
           offset = 0;
-          track.style.transition = 'transform .5s cubic-bezier(.2,.7,.2,1)';
+          track.style.transition = 'transform .8s cubic-bezier(.2,.7,.2,1)';
           apply();
         } else {
-          next();
+          offset = clamp(offset - getStep());
+          apply();
         }
-      }, 3500);
+      }, 3500); // Gira cada 3.5s constantemente
     }
-    function stopAutoPlay() { if (autoPlayId) { clearInterval(autoPlayId); autoPlayId = null; } }
-    function restartAutoPlay() { startAutoPlay(); }
+    function stop() { if (autoPlayId) { clearInterval(autoPlayId); autoPlayId = null; } }
+    function restart() { start(); }
 
-    // Iniciar autoplay tras un pequeño delay (evita saltos raros al cargar)
-    setTimeout(startAutoPlay, 600);
+    setTimeout(start, 600);
   }
 
-  function initCarousel() {
-    document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
-      const track = wrapper.querySelector('.carousel-track');
-      if (!track) return;
-
-      if (track.children.length > 0) {
-        setupCarousel(wrapper);
-      } else {
-        // Esperar a que renderGuias / renderProductos llenen el track
-        const observer = new MutationObserver(() => {
-          if (track.children.length > 0) {
-            observer.disconnect();
-            setupCarousel(wrapper);
-          }
-        });
-        observer.observe(track, { childList: true });
-      }
-    });
+  function initCarousels() {
+    document.querySelectorAll('.carousel-wrapper').forEach(setupCarousel);
   }
 
-  /* =========================================================
-     3. BÚSQUEDA DE CATÁLOGO (solo en productos.html)
-     ========================================================= */
+  // 3. Buscador del Catálogo
   function initCatalogSearch() {
     const input = document.getElementById('productSearch');
+    if (!input) return;
+
     const clearBtn = document.getElementById('searchClear');
     const chips = document.querySelectorAll('.chip');
     const resultCount = document.getElementById('resultCount');
@@ -165,12 +136,8 @@
     const emptyState = document.getElementById('emptyState');
     const categoryContainer = document.getElementById('categorySections');
 
-    if (!input || !searchResults || !searchSection) return;
-
     function getAllCards() {
-      return Array.from(document.querySelectorAll('.card[id]')).filter(
-        c => !c.closest('#searchResults')
-      );
+      return Array.from(document.querySelectorAll('.card[id]')).filter(c => !c.closest('#searchResults'));
     }
 
     function normalize(str) {
@@ -180,8 +147,9 @@
     function getCardText(card) {
       return normalize(
         (card.querySelector('h3')?.textContent || '') + ' ' +
-        (card.querySelector('.tag')?.textContent || '') + ' ' +
-        (card.querySelector('p')?.textContent || '')
+        (card.querySelector('.card-top-bar span')?.textContent || '') + ' ' +
+        (card.querySelector('p')?.textContent || '') + ' ' +
+        (card.querySelector('.card-tags')?.textContent || '')
       );
     }
 
@@ -191,18 +159,16 @@
 
       if (!isSearching) {
         searchSection.style.display = 'none';
-        if (categoryContainer) categoryContainer.style.display = '';
+        categoryContainer.style.display = '';
         if (resultCount) resultCount.textContent = '';
         if (clearBtn) clearBtn.classList.remove('visible');
-        if (emptyState) emptyState.style.display = 'none';
         return;
       }
 
-      if (categoryContainer) categoryContainer.style.display = 'none';
-
+      categoryContainer.style.display = 'none';
       const matches = getAllCards().filter(card => {
         const text = getCardText(card);
-        const tag = normalize(card.querySelector('.tag')?.textContent || '');
+        const tag = normalize(card.querySelector('.card-top-bar span')?.textContent || '');
         const matchesQuery = !q || text.includes(q);
         const matchesCategory = !activeCategory || activeCategory === 'all' || tag === normalize(activeCategory);
         return matchesQuery && matchesCategory;
@@ -218,8 +184,8 @@
       searchSection.style.display = '';
       if (clearBtn) clearBtn.classList.toggle('visible', q.length > 0);
       if (resultCount) {
-        const label = matches.length === 1 ? 'producto' : 'productos';
-        resultCount.textContent = `${matches.length} ${label} encontrado${matches.length === 1 ? '' : 's'}`;
+        const label = matches.length === 1 ? 'módulo' : 'módulos';
+        resultCount.textContent = `[SYS.LOG] ${matches.length} ${label} encontrados.`;
       }
       if (emptyState) emptyState.style.display = matches.length === 0 ? '' : 'none';
       searchResults.style.display = matches.length === 0 ? 'none' : '';
@@ -231,7 +197,7 @@
       debounce = setTimeout(() => {
         const active = document.querySelector('.chip.is-active');
         runSearch(input.value, active ? active.dataset.category : 'all');
-      }, 150);
+      }, 200);
     });
 
     if (clearBtn) {
@@ -256,12 +222,10 @@
     };
   }
 
-  /* =========================================================
-     4. INIT
-     ========================================================= */
+  // INIT
   function init() {
     initReveal();
-    initCarousel();
+    initCarousels();
     initCatalogSearch();
   }
 
