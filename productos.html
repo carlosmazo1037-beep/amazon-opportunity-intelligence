@@ -8,7 +8,7 @@
   })(window,document,'script','dataLayer','GTM-NTPRTN28');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Productos | AOI Integrated Systems</title>
+  <title>Productos Recomendados | AOI Integrated Systems</title>
   <meta name="description" content="Catálogo completo de productos recomendados para organizar tu hogar y oficina." />
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="stylesheet" href="css/style.css">
@@ -18,12 +18,8 @@
 
 <section class="hero hero--compact">
   <div class="hero-content">
-    <div class="hero-top-bar">
-      <span class="tech-label">● SYS.CATALOG // BASE DE DATOS</span>
-      <span class="tech-label" style="color:var(--texto-mutado)">INDEXACIÓN ACTIVA</span>
-    </div>
-    <h1>Catálogo Técnico</h1>
-    <p>Selecciona los módulos requeridos. Todos los componentes están verificados y disponibles para adquisición inmediata en Amazon.</p>
+    <h1>Catálogo de productos</h1>
+    <p>Encuentra rápido lo que buscas. Todos los artículos están disponibles en Amazon.</p>
   </div>
 </section>
 
@@ -31,69 +27,69 @@
   <div class="catalog-toolbar-inner">
     <div class="search-box">
       <span class="search-icon">🔍</span>
-      <input type="search" id="productSearch" placeholder="[SYS.SEARCH] Buscar componente, categoría o utilidad..." autocomplete="off">
-      <button type="button" class="search-clear" id="searchClear" aria-label="Limpiar">×</button>
+      <input type="search" id="productSearch" placeholder="Buscar por producto, categoría o problema…" aria-label="Buscar productos" autocomplete="off">
+      <button type="button" class="search-clear" id="searchClear" aria-label="Limpiar búsqueda">×</button>
     </div>
     <div class="category-chips" id="categoryChips">
-      <button type="button" class="chip is-active" data-category="all">TODOS</button>
-      <button type="button" class="chip" data-category="Home Office">HOME OFFICE</button>
-      <button type="button" class="chip" data-category="Ergonomía">ERGONOMÍA</button>
-      <button type="button" class="chip" data-category="Cables">CABLES</button>
-      <button type="button" class="chip" data-category="Cajones">CAJONES</button>
-      <button type="button" class="chip" data-category="Clósets">CLÓSETS</button>
-      <button type="button" class="chip" data-category="Cocina">COCINA</button>
-      <button type="button" class="chip" data-category="Meal Prep">MEAL PREP</button>
-      <button type="button" class="chip" data-category="Mascotas">MASCOTAS</button>
-      <button type="button" class="chip" data-category="Limpieza">LIMPIEZA</button>
-      <button type="button" class="chip" data-category="Herramientas">HERRAMIENTAS</button>
-      <button type="button" class="chip" data-category="Tecnología">TECNOLOGÍA</button>
+      <button type="button" class="chip is-active" data-category="all">Todos</button>
+      <button type="button" class="chip" data-category="Home Office">Home Office</button>
+      <button type="button" class="chip" data-category="Ergonomía">Ergonomía</button>
+      <button type="button" class="chip" data-category="Cables">Cables</button>
+      <button type="button" class="chip" data-category="Cajones">Cajones</button>
+      <button type="button" class="chip" data-category="Clósets">Clósets</button>
+      <button type="button" class="chip" data-category="Cocina">Cocina</button>
+      <button type="button" class="chip" data-category="Meal Prep">Meal Prep</button>
+      <button type="button" class="chip" data-category="Mascotas">Mascotas</button>
+      <button type="button" class="chip" data-category="Limpieza">Limpieza</button>
+      <button type="button" class="chip" data-category="Herramientas">Herramientas</button>
+      <button type="button" class="chip" data-category="Tecnología">Tecnología</button>
     </div>
     <p class="result-count" id="resultCount"></p>
   </div>
 </div>
 
-<div class="section" id="searchResultsSection" style="display:none; padding-top:40px; padding-bottom:40px;">
+<div class="section" id="searchResultsSection" style="display:none;">
   <div class="grid" id="searchResults"></div>
   <div class="empty-state" id="emptyState" style="display:none;">
-    <p>[ERR_404] Componente no encontrado en la base de datos.</p>
-    <button type="button" class="btn-secondary" onclick="clearSearch()">Reiniciar Búsqueda</button>
+    <p>No encontramos productos para esa búsqueda.</p>
+    <button type="button" class="btn-secondary" onclick="clearSearch()">Ver todos los productos</button>
   </div>
 </div>
 
 <div id="categorySections">
   <section class="section catalog-section" id="cat-home-office">
-    <div class="tech-label" style="margin-bottom:8px;">MOD-01 // HOME OFFICE</div>
-    <h2>Oficina & Ergonomía</h2>
+    <h2>Home Office</h2>
+    <p class="subtitle">Para trabajar mejor en casa</p>
     <div class="grid" data-category-group="Home Office"></div>
   </section>
 
   <section class="section catalog-section" id="cat-hogar">
-    <div class="tech-label" style="margin-bottom:8px;">MOD-02 // STORAGE</div>
-    <h2>Almacenamiento Hogar</h2>
+    <h2>Organización del Hogar</h2>
+    <p class="subtitle">Aprovecha cada rincón de tu casa</p>
     <div class="grid" data-category-group="Hogar"></div>
   </section>
 
   <section class="section catalog-section" id="cat-cocina">
-    <div class="tech-label" style="margin-bottom:8px;">MOD-03 // KITCHEN & MEAL PREP</div>
-    <h2>Cocina & Meal Prep</h2>
+    <h2>Cocina y Meal Prep</h2>
+    <p class="subtitle">Prepara, guarda y organiza tus comidas</p>
     <div class="grid" data-category-group="Cocina"></div>
   </section>
 
   <section class="section catalog-section" id="cat-mascotas">
-    <div class="tech-label" style="margin-bottom:8px;">MOD-04 // CARE & CLEAN</div>
-    <h2>Mascotas & Limpieza</h2>
+    <h2>Mascotas y Limpieza</h2>
+    <p class="subtitle">Soluciones para el día a día con mascotas</p>
     <div class="grid" data-category-group="Mascotas"></div>
   </section>
 
   <section class="section catalog-section" id="cat-herramientas">
-    <div class="tech-label" style="margin-bottom:8px;">MOD-05 // HARDWARE</div>
-    <h2>Herramientas & Hardware</h2>
+    <h2>Herramientas y Construcción</h2>
+    <p class="subtitle">Soluciones para mejorar tu espacio</p>
     <div class="grid" data-category-group="Herramientas"></div>
   </section>
 
   <section class="section catalog-section" id="cat-tecnologia">
-    <div class="tech-label" style="margin-bottom:8px;">MOD-06 // SMART TECH</div>
     <h2>Tecnología</h2>
+    <p class="subtitle">Soluciones para mejorar tu vida diaria</p>
     <div class="grid" data-category-group="Tecnología"></div>
   </section>
 </div>
