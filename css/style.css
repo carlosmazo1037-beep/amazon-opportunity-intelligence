@@ -504,3 +504,333 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   }
   html{scroll-behavior:auto}
 }
+
+/* =========================================================
+   CAPA DE INTERACCIÓN — animaciones y feedback
+   ========================================================= */
+
+/* ---------- Reveal al scroll ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);
+  will-change:opacity,transform;
+}
+.reveal.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+/* ---------- Carrusel interactivo ---------- */
+.carousel-wrapper{position:relative}
+.carousel-wrapper.is-dragging{cursor:grabbing}
+.carousel-wrapper{cursor:grab}
+.carousel-nav{
+  position:absolute;
+  top:50%;
+  left:0;
+  right:0;
+  transform:translateY(-50%);
+  display:flex;
+  justify-content:space-between;
+  padding:0 4px;
+  pointer-events:none;
+  z-index:5;
+}
+.carousel-btn{
+  pointer-events:auto;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid var(--gris-3);
+  background:#fff;
+  color:var(--texto);
+  font-size:1.5rem;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  transition:all .2s cubic-bezier(.2,.7,.2,1);
+}
+.carousel-btn:hover{
+  background:var(--oscuro);
+  color:#fff;
+  border-color:var(--oscuro);
+  transform:scale(1.08);
+}
+.carousel-btn:active{transform:scale(.96)}
+.carousel-track{
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.carousel-track:active{cursor:grabbing}
+
+/* ---------- Tilt 3D ---------- */
+.card{
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+
+/* ---------- Ripple en botones ---------- */
+.btn,.btn-primary,.btn-secondary{
+  position:relative;
+  overflow:hidden;
+}
+.ripple{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,.5);
+  transform:scale(0);
+  animation:rippleAnim .6s ease-out;
+  pointer-events:none;
+}
+@keyframes rippleAnim{
+  to{transform:scale(2.4);opacity:0}
+}
+
+/* ---------- Badge pulse ---------- */
+.badge-seller.pulse{
+  animation:pulseBadge 2.4s ease-in-out infinite;
+}
+@keyframes pulseBadge{
+  0%,100%{box-shadow:0 4px 12px rgba(255,149,0,.4);transform:scale(1)}
+  50%{box-shadow:0 4px 20px rgba(255,149,0,.7);transform:scale(1.04)}
+}
+
+/* ---------- Scroll progress ---------- */
+.scroll-progress{
+  position:fixed;
+  top:0;left:0;
+  height:3px;
+  width:100%;
+  background:linear-gradient(90deg,var(--azul),var(--azul-claro));
+  transform-origin:0 50%;
+  transform:scaleX(0);
+  z-index:200;
+  pointer-events:none;
+}
+
+/* ---------- Contadores ---------- */
+[data-count]{
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+}
+
+/* ---------- Respeto a movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .badge-seller.pulse{animation:none}
+  .scroll-progress{display:none}
+  .carousel-track{transition:none !important}
+}
+
+
+/* =========================================================
+   HOME EDITORIAL + BUSCADOR DE CATÁLOGO
+   ========================================================= */
+
+/* ---------- Hero con trust badges ---------- */
+.hero-trust{
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  flex-wrap:wrap;
+  list-style:none;
+  margin-top:28px;
+  padding:0;
+  color:#a1a1a6;
+  font-size:.82rem;
+  font-weight:500;
+}
+.hero-trust li{display:flex;align-items:center;gap:6px}
+
+/* ---------- Categorías visuales ---------- */
+.section-categories{background:var(--gris)}
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:20px;
+  max-width:var(--contenedor);
+  margin:0 auto;
+}
+.category-card{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:28px 24px;
+  background:#fff;
+  border:1px solid var(--gris-3);
+  border-radius:var(--radio-lg);
+  box-shadow:var(--sombra);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
+}
+.category-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--sombra-hover);
+  border-color:var(--azul);
+}
+.category-icon{font-size:2rem;line-height:1;margin-bottom:4px}
+.category-card h3{font-size:1.05rem;font-weight:700;color:var(--texto)}
+.category-card p{font-size:.86rem;color:var(--texto-suave);margin-bottom:8px}
+.category-link{
+  color:var(--azul);
+  font-size:.84rem;
+  font-weight:700;
+  margin-top:auto;
+}
+.category-card:hover .category-link{text-decoration:underline}
+
+/* ---------- Cómo funciona ---------- */
+.section-how{background:#fff}
+.how-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:28px;
+  max-width:var(--contenedor);
+  margin:0 auto;
+}
+.how-step{
+  text-align:center;
+  padding:32px 24px;
+  background:var(--gris);
+  border-radius:var(--radio-lg);
+  border:1px solid var(--gris-3);
+}
+.how-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--oscuro);
+  color:#fff;
+  font-weight:800;
+  font-size:1.1rem;
+  margin-bottom:16px;
+}
+.how-step h3{font-size:1rem;margin-bottom:8px}
+.how-step p{font-size:.86rem;color:var(--texto-suave);line-height:1.6}
+
+/* ---------- Hero compacto del catálogo ---------- */
+.hero--compact{padding:72px 20px 80px}
+.hero--compact h1{font-size:clamp(1.8rem,3.5vw,2.6rem)}
+.hero--compact p{font-size:1rem;margin-bottom:0}
+
+/* ---------- Toolbar del catálogo ---------- */
+.catalog-toolbar{
+  position:sticky;
+  top:64px;
+  z-index:90;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:saturate(160%) blur(12px);
+  -webkit-backdrop-filter:saturate(160%) blur(12px);
+  border-bottom:1px solid var(--gris-3);
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.catalog-toolbar-inner{
+  max-width:var(--contenedor);
+  margin:0 auto;
+  padding:14px 24px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px;
+}
+.search-box{
+  position:relative;
+  flex:1 1 320px;
+  display:flex;
+  align-items:center;
+}
+.search-icon{
+  position:absolute;
+  left:14px;
+  font-size:.9rem;
+  opacity:.5;
+  pointer-events:none;
+}
+.search-box input{
+  width:100%;
+  padding:12px 42px 12px 40px;
+  border:1.5px solid var(--gris-3);
+  border-radius:10px;
+  font-size:.95rem;
+  font-family:inherit;
+  background:#fff;
+  color:var(--texto);
+  transition:border-color .2s var(--ease),box-shadow .2s var(--ease);
+}
+.search-box input:focus{
+  outline:none;
+  border-color:var(--azul);
+  box-shadow:0 0 0 4px rgba(0,113,227,.12);
+}
+.search-clear{
+  position:absolute;
+  right:8px;
+  width:30px;height:30px;
+  border:0;
+  border-radius:50%;
+  background:var(--gris-2);
+  color:var(--texto-suave);
+  font-size:1.1rem;
+  cursor:pointer;
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+.search-clear.visible{display:flex}
+.search-clear:hover{background:var(--gris-3)}
+
+.category-chips{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+.chip{
+  padding:7px 14px;
+  border:1px solid var(--gris-3);
+  border-radius:999px;
+  background:#fff;
+  color:var(--texto-suave);
+  font-size:.8rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .2s var(--ease);
+  white-space:nowrap;
+}
+.chip:hover{border-color:var(--azul);color:var(--azul)}
+.chip.is-active{background:var(--oscuro);color:#fff;border-color:var(--oscuro)}
+
+.result-count{
+  width:100%;
+  font-size:.82rem;
+  color:var(--texto-suave);
+  margin:0;
+  padding-top:4px;
+}
+
+/* ---------- Secciones del catálogo ---------- */
+.catalog-section{padding-top:56px;padding-bottom:56px}
+.catalog-section.is-hidden{display:none}
+
+/* ---------- Empty state ---------- */
+.empty-state{
+  text-align:center;
+  padding:64px 20px;
+  color:var(--texto-suave);
+}
+.empty-state p{font-size:1rem;margin-bottom:20px}
+
+/* ---------- Responsive ---------- */
+@media (max-width:768px){
+  .catalog-toolbar{top:56px}
+  .catalog-toolbar-inner{padding:12px 16px}
+  .category-chips{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+  .chip{flex:0 0 auto}
+  .hero-trust{gap:12px;font-size:.75rem}
+  .how-grid{grid-template-columns:1fr}
+}

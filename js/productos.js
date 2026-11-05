@@ -214,7 +214,8 @@
 ];
 
 function renderProductos(contenedorId, limite) {
-  const contenedor = document.getElementById(contenedorId);
+  // const contenedor = document.getElementById(contenedorId);
+  const contenedor = document.querySelector(contenedorId);
   if (!contenedor) return;
   
   const lista = limite ? productos.slice(0, limite) : productos;

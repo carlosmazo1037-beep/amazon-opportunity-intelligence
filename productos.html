@@ -12,15 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Productos Recomendados | AOI Integrated Systems</title>
   <meta name="description" content="Catálogo completo de productos recomendados para organizar tu hogar y oficina." />
-
   <link rel="icon" type="image/png" href="img/favicon.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
-
   <meta property="og:type" content="website">
   <meta property="og:title" content="Catálogo de Productos Recomendados | AOI Integrated Systems">
   <meta property="og:description" content="Todos los artículos que recomendamos, disponibles en Amazon. Organiza tu hogar y oficina.">
@@ -29,83 +22,108 @@
   <meta property="og:site_name" content="AOI Integrated Systems">
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTPRTN28"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTPRTN28" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<section class="hero">
+<!-- HERO compacto para no robar espacio al catálogo -->
+<section class="hero hero--compact">
   <div class="hero-content">
-    <span class="badge">Catálogo curado</span>
-    <h1>Catálogo de Productos</h1>
-    <p>Todos los artículos que recomendamos, disponibles en Amazon.</p>
+    <h1>Catálogo de productos</h1>
+    <p>Encuentra rápido lo que buscas. Todos los artículos están disponibles en Amazon.</p>
   </div>
 </section>
 
-<section class="section">
-  <h2>Home Office</h2>
-  <p class="subtitle">Para trabajar mejor en casa</p>
-  <div class="grid" id="cat-home-office"></div>
-</section>
+<!-- BUSCADOR STICKY + CHIPS DE CATEGORÍA -->
+<div class="catalog-toolbar" id="catalogToolbar">
+  <div class="catalog-toolbar-inner">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input
+        type="search"
+        id="productSearch"
+        placeholder="Buscar por producto, categoría o problema…"
+        aria-label="Buscar productos"
+        autocomplete="off"
+      >
+      <button type="button" class="search-clear" id="searchClear" aria-label="Limpiar búsqueda">×</button>
+    </div>
+    <div class="category-chips" id="categoryChips">
+      <button type="button" class="chip is-active" data-category="all">Todos</button>
+      <button type="button" class="chip" data-category="Home Office">Home Office</button>
+      <button type="button" class="chip" data-category="Ergonomía">Ergonomía</button>
+      <button type="button" class="chip" data-category="Cables">Cables</button>
+      <button type="button" class="chip" data-category="Cajones">Cajones</button>
+      <button type="button" class="chip" data-category="Clósets">Clósets</button>
+      <button type="button" class="chip" data-category="Cocina">Cocina</button>
+      <button type="button" class="chip" data-category="Meal Prep">Meal Prep</button>
+      <button type="button" class="chip" data-category="Mascotas">Mascotas</button>
+      <button type="button" class="chip" data-category="Limpieza">Limpieza</button>
+      <button type="button" class="chip" data-category="Herramientas">Herramientas</button>
+      <button type="button" class="chip" data-category="Tecnología">Tecnología</button>
+    </div>
+    <p class="result-count" id="resultCount"></p>
+  </div>
+</div>
 
-<section class="section">
-  <h2>Organización del Hogar</h2>
-  <p class="subtitle">Aprovecha cada rincón de tu casa</p>
-  <div class="grid" id="cat-hogar"></div>
-</section>
+<!-- CONTENEDOR DE RESULTADOS DE BÚSQUEDA (oculto por defecto) -->
+<div class="section" id="searchResultsSection" style="display:none;">
+  <div class="grid" id="searchResults"></div>
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <p>No encontramos productos para esa búsqueda.</p>
+    <button type="button" class="btn-secondary" onclick="clearSearch()">Ver todos los productos</button>
+  </div>
+</div>
 
-<section class="section">
-  <h2>Cocina y Meal Prep</h2>
-  <p class="subtitle">Prepara, guarda y organiza tus comidas</p>
-  <div class="grid" id="cat-cocina"></div>
-</section>
+<!-- CATÁLOGO POR CATEGORÍAS (visible cuando no hay búsqueda) -->
+<div id="categorySections">
+  <section class="section catalog-section" id="cat-home-office">
+    <h2>Home Office</h2>
+    <p class="subtitle">Para trabajar mejor en casa</p>
+    <div class="grid" data-category-group="Home Office"></div>
+  </section>
 
-<section class="section">
-  <h2>Mascotas y Limpieza</h2>
-  <p class="subtitle">Soluciones para el día a día con mascotas</p>
-  <div class="grid" id="cat-mascotas"></div>
-</section>
+  <section class="section catalog-section" id="cat-hogar">
+    <h2>Organización del Hogar</h2>
+    <p class="subtitle">Aprovecha cada rincón de tu casa</p>
+    <div class="grid" data-category-group="Hogar"></div>
+  </section>
 
-<section class="section">
-  <h2>Herramientas y Construcción</h2>
-  <p class="subtitle">Soluciones para mejorar tu espacio</p>
-  <div class="grid" id="cat-herramientas"></div>
-</section>
+  <section class="section catalog-section" id="cat-cocina">
+    <h2>Cocina y Meal Prep</h2>
+    <p class="subtitle">Prepara, guarda y organiza tus comidas</p>
+    <div class="grid" data-category-group="Cocina"></div>
+  </section>
 
-<section class="section">
-  <h2>Tecnología</h2>
-  <p class="subtitle">Soluciones para mejorar tu vida diaria</p>
-  <div class="grid" id="cat-tecnologia"></div>
-</section>
+  <section class="section catalog-section" id="cat-mascotas">
+    <h2>Mascotas y Limpieza</h2>
+    <p class="subtitle">Soluciones para el día a día con mascotas</p>
+    <div class="grid" data-category-group="Mascotas"></div>
+  </section>
+
+  <section class="section catalog-section" id="cat-herramientas">
+    <h2>Herramientas y Construcción</h2>
+    <p class="subtitle">Soluciones para mejorar tu espacio</p>
+    <div class="grid" data-category-group="Herramientas"></div>
+  </section>
+
+  <section class="section catalog-section" id="cat-tecnologia">
+    <h2>Tecnología</h2>
+    <p class="subtitle">Soluciones para mejorar tu vida diaria</p>
+    <div class="grid" data-category-group="Tecnología"></div>
+  </section>
+</div>
 
 <script src="js/layout.js"></script>
 <script src="js/productos.js"></script>
 <script src="js/contacto.js"></script>
 <script src="js/main.js"></script>
 <script>
-  renderProductosPorCategoria('cat-home-office', ['organizador-gianotter', 'brazo-monitor', 'bridas-cable','Pelota-grande']);
-  renderProductosPorCategoria('cat-hogar', ['organizador-cajones', 'cajas-apilables', 'ganchos-adhesivos', 'bolsas-vacio', 'cesta-lavanderia', 'organizador-fregadero', 'organizador-giratorio']);
-  renderProductosPorCategoria('cat-cocina', ['recipientes-rubbermaid', 'recipientes-dealusy', 'recipientes-vtopmart', 'forros-airfryer']);
-  renderProductosPorCategoria('cat-mascotas', ['rodillos-pelusa', 'correa-perro', 'gel-moho']);
-  renderProductosPorCategoria('cat-herramientas', ['sierra-circular-inalambrica', 'fOXBC-Hoja-sierra', 'pistola-pulverización','kasa-Smart-Light','toma-corriente']);
-  renderProductosPorCategoria('cat-tecnologia', ['camara']);
-</script>
-
-<!-- Scroll automático a producto específico -->
-<script>
-  window.addEventListener('load', function() {
-    if (window.location.hash) {
-      const elemento = document.querySelector(window.location.hash);
-      if (elemento) {
-        setTimeout(() => {
-          elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          elemento.style.boxShadow = '0 0 0 3px #2563eb';
-          elemento.style.transition = 'box-shadow 0.3s ease';
-          setTimeout(() => { elemento.style.boxShadow = ''; }, 2000);
-        }, 300);
-      }
-    }
-  });
+  // Renderizado por categoría en los contenedores con data-category-group
+  renderProductosPorCategoria('[data-category-group="Home Office"]', ['organizador-gianotter', 'brazo-monitor', 'bridas-cable', 'Pelota-grande']);
+  renderProductosPorCategoria('[data-category-group="Hogar"]', ['organizador-cajones', 'cajas-apilables', 'ganchos-adhesivos', 'bolsas-vacio', 'cesta-lavanderia', 'organizador-fregadero', 'organizador-giratorio']);
+  renderProductosPorCategoria('[data-category-group="Cocina"]', ['recipientes-rubbermaid', 'recipientes-dealusy', 'recipientes-vtopmart', 'forros-airfryer']);
+  renderProductosPorCategoria('[data-category-group="Mascotas"]', ['rodillos-pelusa', 'correa-perro', 'gel-moho']);
+  renderProductosPorCategoria('[data-category-group="Herramientas"]', ['sierra-circular-inalambrica', 'fOXBC-Hoja-sierra', 'pistola-pulverización', 'kasa-Smart-Light', 'toma-corriente']);
+  renderProductosPorCategoria('[data-category-group="Tecnología"]', ['camara']);
 </script>
 </body>
 </html>
