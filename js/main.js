@@ -1,13 +1,11 @@
 ﻿// main.js — Interacción de AOI Integrated Systems
-// Reveal + Carrusel (todos los wrappers) + Búsqueda de catálogo
+// Reveal + Carrusel (espera render) + Búsqueda de catálogo
 
 (function () {
   'use strict';
 
   /* =========================================================
      1. REVEAL AL SCROLL
-     Añade .reveal y .is-visible (solo opacidad, sin conflicto con hover)
-     Excluye el hero para no ocultar LCP.
      ========================================================= */
   function initReveal() {
     if (!('IntersectionObserver' in window)) return;
@@ -34,12 +32,14 @@
   }
 
   /* =========================================================
-     2. CARRUSEL — funciona con TODOS los .carousel-wrapper
-     Flechas, drag y autoplay con pausa al hover.
+     2. CARRUSEL — se inicializa cuando el track tiene hijos
+     (Soluciona el problema de que renderGuias se ejecuta después)
      ========================================================= */
   function setupCarousel(wrapper) {
     const track = wrapper.querySelector('.carousel-track');
     if (!track || !track.children.length) return;
+    if (wrapper.dataset.carouselReady === '1') return;
+    wrapper.dataset.carouselReady = '1';
 
     let offset = 0;
     let isDragging = false;
@@ -98,7 +98,10 @@
       restartAutoPlay();
     };
 
-    wrapper.addEventListener('mousedown', e => onDown(e.clientX));
+    wrapper.addEventListener('mousedown', e => {
+      if (e.target.closest('.read')) return; // no bloquear clic del botón
+      onDown(e.clientX);
+    });
     window.addEventListener('mousemove', e => onMove(e.clientX));
     window.addEventListener('mouseup', onUp);
     wrapper.addEventListener('touchstart', e => onDown(e.touches[0].clientX), { passive: true });
@@ -112,21 +115,41 @@
     function startAutoPlay() {
       stopAutoPlay();
       autoPlayId = setInterval(() => {
+        if (getMaxOffset() === 0) return; // no hay overflow
         if (offset <= -getMaxOffset() + 4) {
-          offset = 0; apply();
+          offset = 0;
+          track.style.transition = 'transform .5s cubic-bezier(.2,.7,.2,1)';
+          apply();
         } else {
           next();
         }
-      }, 4000);
+      }, 3500);
     }
     function stopAutoPlay() { if (autoPlayId) { clearInterval(autoPlayId); autoPlayId = null; } }
     function restartAutoPlay() { startAutoPlay(); }
 
-    startAutoPlay();
+    // Iniciar autoplay tras un pequeño delay (evita saltos raros al cargar)
+    setTimeout(startAutoPlay, 600);
   }
 
   function initCarousel() {
-    document.querySelectorAll('.carousel-wrapper').forEach(setupCarousel);
+    document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
+      const track = wrapper.querySelector('.carousel-track');
+      if (!track) return;
+
+      if (track.children.length > 0) {
+        setupCarousel(wrapper);
+      } else {
+        // Esperar a que renderGuias / renderProductos llenen el track
+        const observer = new MutationObserver(() => {
+          if (track.children.length > 0) {
+            observer.disconnect();
+            setupCarousel(wrapper);
+          }
+        });
+        observer.observe(track, { childList: true });
+      }
+    });
   }
 
   /* =========================================================

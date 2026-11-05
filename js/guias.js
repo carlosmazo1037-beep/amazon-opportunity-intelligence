@@ -49,15 +49,16 @@
   }
 ];
 
+
 function renderGuias(contenedorId) {
   const contenedor = document.getElementById(contenedorId);
   if (!contenedor) return;
-  
+
   contenedor.innerHTML = guias.map(g => `
-    <a class="carousel-card" href="${g.enlace}" target="_blank" rel="noopener">
+    <div class="carousel-card">
       <h4>${g.titulo}</h4>
       <p>${g.descripcion}</p>
-      <span class="read">Leer guía →</span>
-    </a>
+      <a class="read" href="${g.enlace}" target="_blank" rel="noopener">Leer guía →</a>
+    </div>
   `).join('');
 }
