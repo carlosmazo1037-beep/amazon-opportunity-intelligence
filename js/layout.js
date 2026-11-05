@@ -44,8 +44,8 @@
             <h6>Legal</h6>
             <ul>
               <li><a href="politicas.html">Políticas y Divulgación</a></li>
-              <li><a href="politicas.html#privacidad">Privacidad</a></li>
-              <li><a href="politicas.html#cookies">Cookies</a></li>
+              <li><a href="politicas.html">Privacidad</a></li>
+              <li><a href="politicas.html">Cookies</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -69,9 +69,9 @@
   document.body.insertAdjacentHTML('afterbegin', navHTML);
   document.body.insertAdjacentHTML('beforeend', footerHTML);
 
+  // Menú móvil
   const toggle = document.getElementById('menuToggle');
   const links = document.getElementById('navLinks');
-  const nav = document.getElementById('siteNav');
 
   if (toggle && links) {
     toggle.addEventListener('click', function() {
@@ -89,22 +89,11 @@
     });
   }
 
+  // Sombra del nav al scroll
+  const nav = document.getElementById('siteNav');
   if (nav) {
-    const onScroll = () => {
-      if (window.scrollY > 8) nav.classList.add('is-scrolled');
-      else nav.classList.remove('is-scrolled');
-    };
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
-
-
-// dentro del DOMContentLoaded de layout.js, después de insertar nav/footer
-const navEl = document.getElementById('siteNav');
-if (navEl) {
-  const onScroll = () => navEl.classList.toggle('is-scrolled', window.scrollY > 8);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-}
-
 });

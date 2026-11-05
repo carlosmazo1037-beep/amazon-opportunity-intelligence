@@ -213,17 +213,16 @@
   }
 ];
 
-function renderProductos(contenedorId, limite) {
-  // const contenedor = document.getElementById(contenedorId);
-  const contenedor = document.querySelector(contenedorId);
+function renderProductos(contenedorSelector, limite) {
+  const contenedor = document.querySelector(contenedorSelector);
   if (!contenedor) return;
-  
+
   const lista = limite ? productos.slice(0, limite) : productos;
-  
+
   contenedor.innerHTML = lista.map(p => `
     <div class="card" id="${p.id}">
       ${p.badge ? `<span class="badge-seller">${p.badge}</span>` : ''}
-      <img src="${p.imagen}" alt="${p.nombre}">
+      <img src="${p.imagen}" alt="${p.nombre}" loading="lazy">
       <div class="card-body">
         <span class="tag">${p.tag}</span>
         <h3>${p.nombre}</h3>
@@ -234,16 +233,17 @@ function renderProductos(contenedorId, limite) {
   `).join('');
 }
 
-function renderProductosPorCategoria(contenedorId, ids) {
-  const contenedor = document.getElementById(contenedorId);
+function renderProductosPorCategoria(contenedorSelector, ids) {
+  // CORREGIDO: querySelector para aceptar selectores por atributo
+  const contenedor = document.querySelector(contenedorSelector);
   if (!contenedor) return;
-  
+
   const lista = productos.filter(p => ids.includes(p.id));
-  
+
   contenedor.innerHTML = lista.map(p => `
     <div class="card" id="${p.id}">
       ${p.badge ? `<span class="badge-seller">${p.badge}</span>` : ''}
-      <img src="${p.imagen}" alt="${p.nombre}">
+      <img src="${p.imagen}" alt="${p.nombre}" loading="lazy">
       <div class="card-body">
         <span class="tag">${p.tag}</span>
         <h3>${p.nombre}</h3>
