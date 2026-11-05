@@ -1,4 +1,4 @@
-﻿const productos = [
+﻿﻿const productos = [
   {
     id: 'organizador-gianotter',
     nombre: 'Organizador de Escritorio Gianotter 4 Niveles',

@@ -1,4 +1,4 @@
-﻿ocument.addEventListener('DOMContentLoaded', function() {
+﻿﻿document.addEventListener('DOMContentLoaded', function() {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   
   const navHTML = `

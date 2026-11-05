@@ -1,4 +1,4 @@
-﻿const recursos = [
+﻿﻿const recursos = [
   {
     id: 'ebook-48h',
     nombre: 'The 48-Hour Declutter',

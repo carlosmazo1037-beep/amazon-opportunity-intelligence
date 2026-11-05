@@ -1,4 +1,4 @@
-﻿const contacto = {
+﻿﻿const contacto = {
   pinterest: 'https://www.pinterest.com/carlosmazo10371041',
   medium: 'https://medium.com/@carlosmazo1037',
   tiktok: 'https://www.tiktok.com/@carlosmazo1037',

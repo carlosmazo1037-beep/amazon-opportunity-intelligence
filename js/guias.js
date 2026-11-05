@@ -1,4 +1,4 @@
-﻿const guias = [
+﻿﻿const guias = [
   {
     id: 'escritorio',
     titulo: 'Cómo Organizar tu Escritorio en 15 Minutos',
